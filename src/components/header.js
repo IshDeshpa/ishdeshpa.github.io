@@ -3,38 +3,32 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import {Helmet} from "react-helmet";
 import {animated, useSpring} from 'react-spring'
-//import Container from 'react-bootstrap/Container';
 
-const NavItem = ({scale=2, timing=150, key, children}) => {
+const NavItem = ({scale=2, timing=150, children, order}) => {
 	const [isScaled, setIsScaled] = React.useState(false);
 	const style = useSpring({
 		transform: isScaled
       ? `scale(${scale})`
       : `scale(1)`,
 		config: {
-			tension: 300,
+			tension: 500,
 			friction: 20,
 		}
 	});
 
-	const AnimatedNavItem = animated(({...props})=>(<Nav.Item {...props}></Nav.Item>));
-
 	return(
-		<AnimatedNavItem className="text-light" onMouseEnter={()=>setIsScaled(true)} onMouseLeave={()=>setIsScaled(false)} style={style} key={key}>
+		<animated.div className="nav-item mx-3" onMouseEnter={()=>setIsScaled(true)} onMouseLeave={()=>setIsScaled(false)} style={style}>
 			{children}
-		</AnimatedNavItem>
+		</animated.div>
 	);
 };
 
 const Navigation = ({menuLinks}) => {
 	let navElems = null;
 	navElems = menuLinks
-	.sort((a, b)=>{
-		return a.node.frontmatter.index - b.node.frontmatter.index;
-	})
 	.map(navElem=>(
-			<NavItem key={navElem.node.frontmatter.id} scale="2" timing="200">
-				<Nav.Link href={navElem.node.frontmatter.path}>
+			<NavItem scale="1.5" timing="100">
+				<Nav.Link className="text-uppercase fw-bolder" href={navElem.node.frontmatter.path}>
 					{navElem.node.frontmatter.title}
 				</Nav.Link>
 			</NavItem>
@@ -42,7 +36,7 @@ const Navigation = ({menuLinks}) => {
 	return(
 		//<Navbar bg="primary" variant="light" className="justify-content-center">
 		<Navbar collapseOnSelect className="sticky-top" expand="lg">
-			<Nav className="justify-content-around w-100">
+			<Nav className="justify-content-start w-100">
 				{navElems}
 			</Nav>
 		</Navbar>
@@ -55,9 +49,9 @@ const Header = ({siteTitle, menuLinks}) => {
 			<Helmet>
 				<title>{siteTitle}</title>
 			</Helmet>
-			<h1 className="display-3 text-center fw-bolder">
+			{/*<h1 className="display-3 text-center fw-bolder">
 				<a href="/" className="text-reset text-decoration-none">Ishan Deshpande</a>
-			</h1>
+			</h1>*/}
 			<Navigation menuLinks={menuLinks}></Navigation>
 		</React.Fragment>
 	)

@@ -1,20 +1,27 @@
 // Override default variables before the import
 // you can open the bootstrap.scss module and check any available variables.
 $primary: #4472C4;
-$secondary: #8f5325;
+$secondary: #163B7A;
 $success: #3e8d63;
 $info: #7854e4;
 $warning: #b8c924;
 $danger: #d62518;
-$light: #D2E1FC;
-$dark: #163B7A;
+$light: lighten($primary, 40%);
+$dark: darken($primary, 40%);
 
-$body-bg: $dark;
-$body-color: $light;
-// https://coolors.co/4472c4-163b7a-d2e1fc-eccfc3-957d95
+// https://coolors.co/4472c4-163b7a-d2e1fc-0e1829-957d95
 
 //custom color to be mapped
-//$accent : ;
+$body-bg: $secondary;
+$body-color: $light;
+
+$navbar-dark-color: $dark;
+$navbar-light-color: $light;
+$navbar-light-hover-color: lighten($light, 10%);
+.navbar{
+  background: $navbar-dark-color;
+  color: $navbar-light-color;
+}
 
 // this is used to map colors. change accordingly.
 $theme-colors: (
