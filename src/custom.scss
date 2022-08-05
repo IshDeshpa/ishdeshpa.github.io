@@ -1,4 +1,36 @@
-// Override default variables before the import
+// Required
+@import "~bootstrap/scss/mixins/banner";
+@include bsBanner("");
+@import "~bootstrap/scss/functions";
+
+// Default variable overrides
+$primary: #4472C4;
+
+// Required
+@import "~bootstrap/scss/variables";
+
+$body-bg: $gray-100;
+$body-color: $gray-800;
+
+$navbar-dark-color: shift-color($primary, 50%);
+$navbar-light-color: $gray-100;
+$navbar-light-hover-color: shift-color($navbar-light-color, -20%);
+
+@import "~bootstrap/scss/maps";
+@import "~bootstrap/scss/mixins";
+@import "~bootstrap/scss/utilities";
+
+// Optional Bootstrap components here
+// Layout & components
+
+.navbar{
+  background: $navbar-dark-color;
+  color: $navbar-light-color;
+}
+
+@import '~bootstrap/scss/bootstrap.scss';
+
+/*// Override default variables before the import
 // you can open the bootstrap.scss module and check any available variables.
 $primary: #4472C4;
 $secondary: #163B7A;
@@ -9,19 +41,9 @@ $danger: #d62518;
 $light: lighten($primary, 40%);
 $dark: darken($primary, 40%);
 
-// https://coolors.co/4472c4-163b7a-d2e1fc-0e1829-957d95
-
 //custom color to be mapped
 $body-bg: $secondary;
 $body-color: $light;
-
-$navbar-dark-color: $dark;
-$navbar-light-color: $light;
-$navbar-light-hover-color: lighten($light, 10%);
-.navbar{
-  background: $navbar-dark-color;
-  color: $navbar-light-color;
-}
 
 // this is used to map colors. change accordingly.
 $theme-colors: (
@@ -33,11 +55,7 @@ $theme-colors: (
   danger: $danger,
   light: $light,
   dark: $dark,
-// add any additional color below
-//  accent: $accent,
-
-// now bg-accent,btn-accent,etc.. can be called
 );
 
 // Import Bootstrap and its default variables
-@import '~bootstrap/scss/bootstrap.scss';
+@import '~bootstrap/scss/bootstrap.scss';*/

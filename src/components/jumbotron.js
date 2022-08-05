@@ -1,13 +1,15 @@
 import * as React from 'react';
 import Container from 'react-bootstrap/Container';
+import { StaticImage } from "gatsby-plugin-image"
 //import {animated, useSpring} from 'react-spring'
 
-const Jumbo = ({children}) => {
-	<React.Fragment>
-		<Container fluid bg="light" className="p-5 rounded-lg m-3">
+const Jumbo = ({img, children}) => {
+	return(<React.Fragment>
+		<Container fluid className="jumbotron p-5">
 			{children}
+			<StaticImage src="https://media.geeksforgeeks.org/wp-content/uploads/20210425000233/test-300x297.png"></StaticImage>
 		</Container>
-	</React.Fragment>
+	</React.Fragment>)
 }
 
 export default Jumbo

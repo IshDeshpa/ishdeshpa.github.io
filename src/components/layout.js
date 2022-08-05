@@ -1,11 +1,11 @@
 import * as React from 'react'
 import Header from '../components/header'
-import Jumbo from '../components/jumbotron'
-import { MDXProvider } from "@mdx-js/react"
+//import Jumbo from '../components/jumbotron'
+//import { MDXProvider } from "@mdx-js/react"
 import {graphql, useStaticQuery } from "gatsby"
 import '../custom.scss';
 
-const shortcodes = {Jumbo}
+//const shortcodes = {Jumbo}
 
 const Layout = ({children}) => {
 	const q = useStaticQuery(graphql`
@@ -35,9 +35,10 @@ const Layout = ({children}) => {
 		<React.Fragment>
 			<Header menuLinks={q.allMdx.edges} siteTitle={q.site.siteMetadata.title} />
 			<main>
-				<MDXProvider components={shortcodes}>
+			{/*	<MDXProvider components={shortcodes}>
 					{children}
-				</MDXProvider>
+			</MDXProvider>*/}
+			{children}
 			</main>
 		</React.Fragment>
 	)

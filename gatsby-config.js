@@ -4,11 +4,19 @@ module.exports = {
     title: `Ishan Deshpande`,
   },
   plugins: [
+    `gatsby-plugin-sharp`,
+    `gatsby-plugin-image`,
     {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `pages`,
         path: `${__dirname}/src/pages/`,
+      },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        path: `${__dirname}/src/images`,
       },
     },
     {
@@ -20,12 +28,6 @@ module.exports = {
         },
       },
     },
-    `gatsby-plugin-sass`,
-    /*{
-      resolve: "gatsby-plugin-page-creator",
-      options: {
-        path: `${__dirname}/src/posts`,
-      },
-    },*/
+    `gatsby-plugin-sass`
   ],
 }
