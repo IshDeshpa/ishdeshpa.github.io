@@ -13,8 +13,34 @@ $body-bg: $gray-100;
 $body-color: $gray-800;
 
 $navbar-dark-color: shift-color($primary, 50%);
-$navbar-light-color: $gray-100;
+$navbar-light-color: color-contrast($navbar-dark-color);
 $navbar-light-hover-color: shift-color($navbar-light-color, -20%);
+
+$navbar-light-active-color: $navbar-light-color;
+$navbar-dark-active-color: $navbar-dark-color;
+
+.navbar{
+  background: $navbar-dark-color;
+  color: $navbar-light-color;
+}
+
+$jumbo-dark: shift-color($primary, 80%);
+$jumbo-light: color-contrast($jumbo-dark);
+
+.jumbotron{
+  &.dark{
+    background: $jumbo-dark;
+    color: $jumbo-light;
+  }
+  &.light{
+    background: $jumbo-light;
+    color: $jumbo-dark;
+  }
+  &.none{
+    background: $body-bg;
+    color: $body-color;
+  }
+}
 
 @import "~bootstrap/scss/maps";
 @import "~bootstrap/scss/mixins";
@@ -22,11 +48,6 @@ $navbar-light-hover-color: shift-color($navbar-light-color, -20%);
 
 // Optional Bootstrap components here
 // Layout & components
-
-.navbar{
-  background: $navbar-dark-color;
-  color: $navbar-light-color;
-}
 
 @import '~bootstrap/scss/bootstrap.scss';
 

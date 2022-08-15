@@ -1,15 +1,49 @@
 import * as React from 'react';
 import Container from 'react-bootstrap/Container';
-import { StaticImage } from "gatsby-plugin-image"
-//import {animated, useSpring} from 'react-spring'
+import Image from 'react-bootstrap/Image';
+import Row from 'react-bootstrap/Row'
+import Col from 'react-bootstrap/Col'
 
-const Jumbo = ({img, children}) => {
-	return(<React.Fragment>
-		<Container fluid className="jumbotron p-5">
+const Jumbo = ({children, imgSrc, align, theme}) => {
+	const ImgComp=()=>{
+		return (
+		<Col md="auto">
+			<Image fluid src={imgSrc} alt="alt"></Image>
+		</Col>
+		)
+	}
+	const TextComp=()=>{
+		return (
+		<Col>
 			{children}
-			<StaticImage src="https://media.geeksforgeeks.org/wp-content/uploads/20210425000233/test-300x297.png"></StaticImage>
-		</Container>
-	</React.Fragment>)
+		</Col>
+		)
+	}
+
+	if(align==="left"){
+		return(
+			<React.Fragment>
+				<Container fluid className={"jumbotron p-5 "+theme}>
+					<Row>
+						<TextComp></TextComp>
+						<ImgComp></ImgComp>
+					</Row>
+				</Container>
+			</React.Fragment>
+		)
+	}
+	else{
+		return(
+			<React.Fragment>
+				<Container fluid className={"jumbotron p-5 "+theme}>
+					<Row>
+						<ImgComp></ImgComp>
+						<TextComp></TextComp>
+					</Row>
+				</Container>
+			</React.Fragment>
+		)
+	}
 }
 
 export default Jumbo

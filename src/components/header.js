@@ -4,7 +4,7 @@ import Navbar from 'react-bootstrap/Navbar';
 import {Helmet} from "react-helmet";
 import {animated, useSpring} from 'react-spring'
 
-const NavItem = ({scale=2, timing=150, children, order}) => {
+const NavItem = ({scale=2, children, path, title}) => {
 	const [isScaled, setIsScaled] = React.useState(false);
 	const style = useSpring({
 		transform: isScaled
@@ -15,23 +15,44 @@ const NavItem = ({scale=2, timing=150, children, order}) => {
 			friction: 20,
 		}
 	});
+	const styleSel = {
+		transform: `scale(${scale})`
+	};
 
-	return(
-		<animated.div className="nav-item mx-3" onMouseEnter={()=>setIsScaled(true)} onMouseLeave={()=>setIsScaled(false)} style={style}>
-			{children}
-		</animated.div>
-	);
+	if(window.location.pathname !== path){
+		return(
+			<React.Fragment>
+				<animated.div className="nav-item mx-3 d-none d-md-inline" onMouseEnter={()=>setIsScaled(true)} onMouseLeave={()=>setIsScaled(false)} style={style}>
+					<Nav.Link className="text-uppercase fw-bolder" href={path}>
+								{title}
+					</Nav.Link>
+				</animated.div>
+				<Nav.Item className="mx-3 d-inline d-md-none">
+					<Nav.Link className="text-uppercase fw-bolder" href={path}>
+							{title}
+					</Nav.Link>
+				</Nav.Item>
+			</React.Fragment>
+		);
+	}
+	else{
+		return(
+			<React.Fragment>
+				<Nav.Item className="mx-3" style={styleSel}>
+					<Nav.Link className="text-uppercase fw-bolder" href={path}>
+							{title}
+					</Nav.Link>
+				</Nav.Item>
+			</React.Fragment>
+		);
+	}
 };
 
 const Navigation = ({menuLinks}) => {
 	let navElems = null;
 	navElems = menuLinks
 	.map(navElem=>(
-			<NavItem scale="1.5" timing="100">
-				<Nav.Link className="text-uppercase fw-bolder" href={navElem.node.frontmatter.path}>
-					{navElem.node.frontmatter.title}
-				</Nav.Link>
-			</NavItem>
+			<NavItem scale="1.5" timing="100" path={navElem.node.frontmatter.path} title={navElem.node.frontmatter.title}/>
 	));
 	return(
 		//<Navbar bg="primary" variant="light" className="justify-content-center">

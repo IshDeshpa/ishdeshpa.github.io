@@ -4,8 +4,6 @@ module.exports = {
     title: `Ishan Deshpande`,
   },
   plugins: [
-    `gatsby-plugin-sharp`,
-    `gatsby-plugin-image`,
     {
       resolve: `gatsby-source-filesystem`,
       options: {
@@ -16,7 +14,15 @@ module.exports = {
     {
       resolve: `gatsby-source-filesystem`,
       options: {
+        name: `images`,
         path: `${__dirname}/src/images`,
+      },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `jumbos`,
+        path: `${__dirname}/src/jumbos`,
       },
     },
     {

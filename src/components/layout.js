@@ -1,7 +1,5 @@
 import * as React from 'react'
 import Header from '../components/header'
-//import Jumbo from '../components/jumbotron'
-//import { MDXProvider } from "@mdx-js/react"
 import {graphql, useStaticQuery } from "gatsby"
 import '../custom.scss';
 
@@ -33,12 +31,9 @@ const Layout = ({children}) => {
 
 	return (
 		<React.Fragment>
-			<Header menuLinks={q.allMdx.edges} siteTitle={q.site.siteMetadata.title} />
+			<Header menuLinks={q.allMdx.edges} siteTitle={q.site.siteMetadata.title}/>
 			<main>
-			{/*	<MDXProvider components={shortcodes}>
-					{children}
-			</MDXProvider>*/}
-			{children}
+				{children}
 			</main>
 		</React.Fragment>
 	)
