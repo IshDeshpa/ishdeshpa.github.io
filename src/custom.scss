@@ -1,6 +1,7 @@
 // Required
 @import "~bootstrap/scss/mixins/banner";
 @include bsBanner("");
+@import "~bootstrap/scss/mixins";
 @import "~bootstrap/scss/functions";
 
 // Default variable overrides
@@ -12,17 +13,14 @@ $primary: #4472C4;
 $body-bg: $gray-100;
 $body-color: $gray-800;
 
-$navbar-dark-color: shift-color($primary, 50%);
-$navbar-light-color: color-contrast($navbar-dark-color);
-$navbar-light-hover-color: shift-color($navbar-light-color, -20%);
-
-$navbar-light-active-color: $navbar-light-color;
-$navbar-dark-active-color: $navbar-dark-color;
-
+$navbar-dark-bg: shift-color($primary, 50%);
 .navbar{
-  background: $navbar-dark-color;
-  color: $navbar-light-color;
+  background-color: $navbar-dark-bg;
 }
+
+$navbar-dark-active-color: color-contrast($navbar-dark-bg);
+$navbar-dark-hover-color: color-contrast($navbar-dark-bg);
+$navbar-dark-color: shift-color($navbar-dark-active-color, 20%);
 
 $jumbo-dark: shift-color($primary, 80%);
 $jumbo-light: color-contrast($jumbo-dark);
@@ -42,8 +40,32 @@ $jumbo-light: color-contrast($jumbo-dark);
   }
 }
 
+.pdf {
+  position: relative;
+  padding-top: 85%; /* Your percentage */
+  margin-left: 16%;
+  margin-right: 16%;
+}
+.pdf > embed {
+  position: absolute;
+  height: 100%;
+  left: 0;
+  top: 0;
+}
+
+@include media-breakpoint-down(md){
+  .nav-item{
+    transform-origin: center left
+  }
+}
+@include media-breakpoint-up(md){
+  .nav-item{
+    transform-origin: center center
+  }
+}
+
 @import "~bootstrap/scss/maps";
-@import "~bootstrap/scss/mixins";
+//@import "~bootstrap/scss/mixins";
 @import "~bootstrap/scss/utilities";
 
 // Optional Bootstrap components here

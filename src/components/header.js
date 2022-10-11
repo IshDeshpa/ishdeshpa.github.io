@@ -4,7 +4,7 @@ import Navbar from 'react-bootstrap/Navbar';
 import {Helmet} from "react-helmet";
 import {animated, useSpring} from 'react-spring'
 
-const NavItem = ({scale=2, children, path, title}) => {
+const NavItem = ({scale=2, path, title}) => {
 	const [isScaled, setIsScaled] = React.useState(false);
 	const style = useSpring({
 		transform: isScaled
@@ -15,16 +15,18 @@ const NavItem = ({scale=2, children, path, title}) => {
 			friction: 20,
 		}
 	});
-	const styleSel = {
-		transform: `scale(${scale})`
-	};
 
+	const styleSel = {
+		transform: `scale(${scale})`,
+		
+	};
+	
 	if(window.location.pathname !== path){
 		return(
 			<React.Fragment>
 				<animated.div className="nav-item mx-3 d-none d-md-inline" onMouseEnter={()=>setIsScaled(true)} onMouseLeave={()=>setIsScaled(false)} style={style}>
 					<Nav.Link className="text-uppercase fw-bolder" href={path}>
-								{title}
+							{title}
 					</Nav.Link>
 				</animated.div>
 				<Nav.Item className="mx-3 d-inline d-md-none">
@@ -39,7 +41,7 @@ const NavItem = ({scale=2, children, path, title}) => {
 		return(
 			<React.Fragment>
 				<Nav.Item className="mx-3" style={styleSel}>
-					<Nav.Link className="text-uppercase fw-bolder" href={path}>
+					<Nav.Link className="text-uppercase fw-bolder active" href={path}>
 							{title}
 					</Nav.Link>
 				</Nav.Item>
@@ -56,7 +58,7 @@ const Navigation = ({menuLinks}) => {
 	));
 	return(
 		//<Navbar bg="primary" variant="light" className="justify-content-center">
-		<Navbar collapseOnSelect className="sticky-top" expand="lg">
+		<Navbar collapseOnSelect className="sticky-top navbar-dark" expand="lg">
 			<Nav className="justify-content-start w-100">
 				{navElems}
 			</Nav>
