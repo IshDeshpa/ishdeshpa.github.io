@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunkishan_deshpande=self.webpackChunkishan_deshpande||[]).push([[237],{5831:function(e,n,t){t.r(n);var a=t(7294),r=t(4239).Z;function u(e){return a.createElement(a.Fragment)}n.default=function(e){return void 0===e&&(e={}),a.createElement(r,e,a.createElement(u,e))}}}]);
+//# sourceMappingURL=component---src-pages-blog-mdx-8a444760061781e6dff7.js.map
