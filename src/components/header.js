@@ -3,8 +3,10 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import {Helmet} from "react-helmet";
 import {animated, useSpring} from 'react-spring'
+import { useLocation } from '@reach/router';
 
 const NavItem = ({scale=2, path, title}) => {
+	const location = useLocation();
 	const [isScaled, setIsScaled] = React.useState(false);
 	const style = useSpring({
 		transform: isScaled
@@ -18,10 +20,11 @@ const NavItem = ({scale=2, path, title}) => {
 
 	const styleSel = {
 		transform: `scale(${scale})`,
-		
 	};
 	
-	if(window.location.pathname !== path){
+	if(path === "//") path = "/";
+
+	if(`${location.pathname}` !== path){
 		return(
 			<React.Fragment>
 				<animated.div className="nav-item mx-3 d-none d-md-inline" onMouseEnter={()=>setIsScaled(true)} onMouseLeave={()=>setIsScaled(false)} style={style}>
@@ -54,7 +57,7 @@ const Navigation = ({menuLinks}) => {
 	let navElems = null;
 	navElems = menuLinks
 	.map(navElem=>(
-			<NavItem scale="1.5" timing="100" path={navElem.node.frontmatter.path} title={navElem.node.frontmatter.title}/>
+			<NavItem scale="1.5" timing="100" path={navElem.node.frontmatter.path+"/"} title={navElem.node.frontmatter.title}/>
 	));
 	return(
 		//<Navbar bg="primary" variant="light" className="justify-content-center">

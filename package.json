@@ -12,7 +12,8 @@
     "start": "gatsby develop",
     "build": "gatsby build",
     "serve": "gatsby serve",
-    "clean": "gatsby clean"
+    "clean": "gatsby clean",
+    "deploy": "gatsby build && gh-pages -d public -b main"
   },
   "dependencies": {
     "@mdx-js/mdx": "^2.1.2",
@@ -27,10 +28,14 @@
     "node-fetch": "^2.6.1",
     "react": "^18.1.0",
     "react-bootstrap": "^2.4.0",
+    "react-chrono": "^1.19.2",
     "react-dom": "^18.1.0",
     "react-helmet": "^6.1.0",
     "react-spring": "^9.5.1",
     "sass": "^1.53.0",
     "sass-loader": "^13.0.2"
+  },
+  "devDependencies": {
+    "gh-pages": "^4.0.0"
   }
 }
