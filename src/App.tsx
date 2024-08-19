@@ -1,14 +1,20 @@
 import { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
+
+import Menubar from './components/Menubar'
+
 import './App.css'
+import './scss/main.scss'
 
 function App() {
   const [count, setCount] = useState(0)
+  const navItems = ['Home', 'About', 'Services', 'Contact']
 
   return (
     <>
-      <div>
+      <Menubar name="My Website" logo={reactLogo} navItems={navItems} />
+      <div> 
         <a href="https://vitejs.dev" target="_blank">
           <img src={viteLogo} className="logo" alt="Vite logo" />
         </a>
