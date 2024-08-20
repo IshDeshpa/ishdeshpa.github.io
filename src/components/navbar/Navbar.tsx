@@ -25,13 +25,13 @@ const MyNavbar: React.FC = () => {
         <Navbar className="d-flex row">
             <Navbar.Brand href="/" className="fs-1 effect-shine fw-bolder col">Ishan Deshpande</Navbar.Brand>
             <Nav className="icons col">
-                <Nav.Link>
+                <Nav.Link href='https://www.linkedin.com/in/ishdeshpa/' target='_blank'>
                     <Image fluid className="icon" src="https://cdn1.iconfinder.com/data/icons/logotypes/32/circle-linkedin-512.png" alt="LinkedIn" roundedCircle/>
                 </Nav.Link>
-                <Nav.Link>
+                <Nav.Link href='mailto:ishdeshpa@utexas.edu' target='_blank' rel='noopener noreferrer'>
                     <Image fluid className="icon" src="https://cdn4.iconfinder.com/data/icons/social-media-logos-6/512/112-gmail_email_mail-512.png" alt="Email" roundedCircle/>
                 </Nav.Link>
-                <Nav.Link>
+                <Nav.Link href='https://github.com/IshDeshpa' target='_blank'>
                     <Image fluid className="icon" src="https://cdn-icons-png.flaticon.com/512/25/25231.png" alt="GitHub" roundedCircle/>
                 </Nav.Link>
             </Nav>  
