@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import { Container } from 'react-bootstrap';
 import ReactMarkdown from 'react-markdown';
 
@@ -7,7 +7,7 @@ import './jumbotron.scss';
 const MyJumbotron: React.FC = () => {
     const [description, setDescription] = React.useState<string>('');
 
-    React.useEffect(() => {
+    useEffect(() => {
         import('./description.md').then((module) => {
             fetch(module.default)
                 .then((response) => response.text())
