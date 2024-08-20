@@ -1,6 +1,6 @@
 import React, {useEffect} from 'react';
 import { Container } from 'react-bootstrap';
-import ReactMarkdown from 'react-markdown';
+import Markdown from 'react-markdown';
 
 import './jumbotron.scss';
 
@@ -15,7 +15,7 @@ const MyJumbotron: React.FC = () => {
                     setDescription(text);
                 });
         });
-    }, []);
+    }, []); 
 
     return (
         <div className="jumbotron-fluid text-light">
@@ -23,7 +23,7 @@ const MyJumbotron: React.FC = () => {
                 <div className="row">
                     <div className="description col-md-8">
                         <h1>Hi!</h1>
-                        <ReactMarkdown>{description}</ReactMarkdown>
+                        <Markdown>{description}</Markdown>
                     </div>
                     <div className="col-md-4 pe-0">
                         <div className="image-container">

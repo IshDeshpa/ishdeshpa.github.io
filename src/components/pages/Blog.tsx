@@ -1,34 +1,13 @@
 import React, { useEffect, useState } from 'react';
-import ReactMarkdown from 'react-markdown';
+import Post from '../post/Post';
 
 const MyBlog: React.FC = () => {
-    const [posts, setPosts] = useState<{ [key: string]: string }>({});
-
-    useEffect(() => {
-        const loadPosts = async () => {
-            const modules = import.meta.glob('./posts/*.md', { eager: false });
-            const moduleImports: { [key: string]: any } = {};
-            const loadedPosts: { [key: string]: string } = {};
-
-            for (const path in modules) {
-                moduleImports[path] = await modules[path]();
-                fetch(moduleImports[path].default)
-                .then((response) => response.text())
-                .then((text) => {
-                    loadedPosts[path] = text;
-                });
-            }
-
-            setPosts(loadedPosts);
-        };
-
-        loadPosts();
-    }, []);
+    const posts = Object.values(import.meta.glob("./posts/**/*.md", {eager: true, query: "?raw"}));
 
     return (
-        <div className="blog">
-            {Object.keys(posts).map((path) => (
-                <ReactMarkdown key={path}>{posts[path]}</ReactMarkdown>
+        <div className="ps-2">
+            {posts.map((post, index) => (
+                <Post md={post.default as string} key={index}></Post>
             ))}
         </div>
     );

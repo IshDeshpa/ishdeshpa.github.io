@@ -1,0 +1,18 @@
+@import '../../scss/index.scss';
+
+.post {
+    padding: 1rem;
+    border-radius: 15px;
+    background-color: $light;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.post-body {
+    a {
+        color: darkblue;
+    }
+    p {
+        font-size: larger;
+    }
+}
