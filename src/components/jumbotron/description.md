@@ -1,4 +1,4 @@
-I am Ishan Deshpande, a senior pursuing a integrated master's degree in Electrical and Computer Engineering at UT Austin. My passion lies in embedded software development, particularly in control-related fields such as robotics or vehicle control, as well as consumer electronics. Currently, I am the Platform Lead on the UT Longhorn Racing Solar Team, where I work on ARM-based 
+I am Ishan Deshpande, a senior pursuing a integrated master's degree in Electrical and Computer Engineering at **UT Austin**. My passion lies in embedded software development, particularly in control-related fields such as robotics or vehicle control, as well as consumer electronics. Currently, I am the Platform Lead on the UT Longhorn Racing Solar Team, where I work on ARM-based 
 embedded systems and a real-time operating system (RTOS) for controlling a solar-powered vehicle.
 
 

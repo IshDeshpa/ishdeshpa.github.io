@@ -37,7 +37,16 @@ $jumbotron-background-color: $dark;
 
 .description {
     padding: 1rem;
+    h1 {
+        color: $light;
+    }
+    strong {
+        color: $orange;
+    }
+    a {
+        color: $light;
+    }
     p {
-        font-size: large;
+        font-size: larger;
     }
 }

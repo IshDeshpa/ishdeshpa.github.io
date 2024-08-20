@@ -2,6 +2,9 @@
 
 .icon{
     width: 40px;
+    &:hover {
+        animation: icon-grow 0.5s;
+    }
 }
 
 .icons{
@@ -21,12 +24,24 @@
     animation: shine 2s infinite;
 }
 
-@-webkit-keyframes shine {
+@keyframes shine {
     from {
         -webkit-mask-position: 150%;
     }
 
     to {
         -webkit-mask-position: -50%;
+    }
+}
+
+@keyframes icon-grow {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.5);
+    }
+    100% {
+        transform: scale(1);
     }
 }
