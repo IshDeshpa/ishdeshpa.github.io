@@ -22,7 +22,7 @@ const MyNavbar: React.FC = () => {
     }, []);
 
     return (
-        <Navbar className="d-flex row">
+        <Navbar className="d-flex">
             <Navbar.Brand href="/" className="fs-1 effect-shine fw-bolder col">Ishan Deshpande</Navbar.Brand>
             <Nav className="icons col">
                 <Nav.Link href='https://www.linkedin.com/in/ishdeshpa/' target='_blank'>
