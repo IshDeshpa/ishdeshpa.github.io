@@ -1,21 +1,21 @@
-@use "@catppuccin/palette/scss/mocha";
+@import "@catppuccin/palette/scss/mocha";
 
 @import '../../node_modules/bootstrap/scss/functions';
 @import '../../node_modules/bootstrap/scss/variables';
 @import '../../node_modules/bootstrap/scss/mixins';
 @import '../../node_modules/bootstrap/scss/maps';
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;700&display=swap');
 
-$font-family-sans-serif: 'Roboto', sans-serif;
+$font-family-sans-serif: 'Ubuntu', sans-serif;
 $theme-colors: map-merge($theme-colors, (
-    "primary": mocha.$sky,
-    "secondary": mocha.$sapphire,
-    "success": mocha.$green,
-    "info": mocha.$blue,
-    "warning": mocha.$yellow,
-    "danger": mocha.$red,
-    "light": mocha.$blue,
-    "dark": mocha.$base,
+    "primary": $sky,
+    "secondary": $sapphire,
+    "success": $green,
+    "info": $blue,
+    "warning": $yellow,
+    "danger": $red,
+    "light": $blue,
+    "dark": $base,
 ));
 
 $utilities-colors: map-merge($theme-colors, $utilities-colors);
@@ -26,7 +26,7 @@ $theme-colors-rgb: map-loop($theme-colors, to-rgb, "$value");
 
 @import "../../node_modules/bootstrap/scss/bootstrap";
 
+$body-background-color: color-mix(in oklab, $subtext1, $lavender);
 body {
-    background-color: mocha.$base;
-    color: mocha.$text;
+    background-color: $body-background-color;
 }

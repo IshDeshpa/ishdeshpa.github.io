@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { Navbar, Nav } from 'react-bootstrap';
 
+import './navbar.scss';
+
 const MyNavbar: React.FC = () => {
     const [pages, setPages] = useState<{ [key: string]: any }>({});
 
@@ -22,13 +24,13 @@ const MyNavbar: React.FC = () => {
     }, []);
 
     return (
-        <Navbar bg="dark" variant="dark">
-            <Navbar.Brand href="/">Ishan Deshpande</Navbar.Brand>
-            <Nav className="ms-auto">
+        <Navbar className="ps-2 navbar-light">
+            <Navbar.Brand href="/" className="fs-1 effect-shine fw-bolder">Ishan Deshpande</Navbar.Brand>
+            <Nav className="ms-auto pe-2 fs-5">
                 {Object.keys(pages).map((path) => {
                     const pageName = path.replace('../pages/', '').replace('.tsx', '');
                     return (
-                        <Nav.Link key={pageName} href={`/${pageName}`}>
+                        <Nav.Link className="effect-shine" key={pageName} href={`/${pageName}`}>
                             {pageName}
                         </Nav.Link>
                     );
