@@ -1,0 +1,32 @@
+@use "@catppuccin/palette/scss/mocha";
+
+@import '../../node_modules/bootstrap/scss/functions';
+@import '../../node_modules/bootstrap/scss/variables';
+@import '../../node_modules/bootstrap/scss/mixins';
+@import '../../node_modules/bootstrap/scss/maps';
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+$font-family-sans-serif: 'Roboto', sans-serif;
+$theme-colors: map-merge($theme-colors, (
+    "primary": mocha.$sky,
+    "secondary": mocha.$sapphire,
+    "success": mocha.$green,
+    "info": mocha.$blue,
+    "warning": mocha.$yellow,
+    "danger": mocha.$red,
+    "light": mocha.$blue,
+    "dark": mocha.$base,
+));
+
+$utilities-colors: map-merge($theme-colors, $utilities-colors);
+
+$utilities-text-colors: map-loop($utilities-colors, rgba-css-var, "$key", "text");
+$utilities-bg-colors: map-loop($utilities-colors, rgba-css-var, "$key", "bg");
+$theme-colors-rgb: map-loop($theme-colors, to-rgb, "$value");
+
+@import "../../node_modules/bootstrap/scss/bootstrap";
+
+body {
+    background-color: mocha.$base;
+    color: mocha.$text;
+}
