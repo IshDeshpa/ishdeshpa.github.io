@@ -1,5 +1,11 @@
 @import '../../scss/index.scss';
 
+.navbar {
+    background-color: $body-background-color;
+    border-radius: 15px;
+    height: 3rem;
+}
+
 .icon{
     width: 40px;
     &:hover {
