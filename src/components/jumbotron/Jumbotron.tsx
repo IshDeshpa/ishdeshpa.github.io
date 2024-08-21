@@ -1,21 +1,12 @@
-import React, {useEffect} from 'react';
+import React from 'react';
 import { Container } from 'react-bootstrap';
 import Markdown from 'react-markdown';
 
 import './jumbotron.scss';
 
 const MyJumbotron: React.FC = () => {
-    const [description, setDescription] = React.useState<string>('');
-
-    useEffect(() => {
-        import('./description.md').then((module) => {
-            fetch(module.default)
-                .then((response) => response.text())
-                .then((text) => {
-                    setDescription(text);
-                });
-        });
-    }, []); 
+    // Eager loading this is faster, but you have to use the glob import?
+    const description : any = Object.values(import.meta.glob("./description.md", {eager: true, query: "?raw"}))[0];
 
     return (
         <div className="jumbotron-fluid text-light">
@@ -23,7 +14,7 @@ const MyJumbotron: React.FC = () => {
                 <div className="row">
                     <div className="description col-md-8">
                         <h1>Hi!</h1>
-                        <Markdown>{description}</Markdown>
+                        <Markdown>{description.default as string}</Markdown>
                     </div>
                     <div className="col-md-4 pe-0">
                         <div className="image-container">
