@@ -6,7 +6,7 @@ import Markdown from 'react-markdown';
 
 const MySemester: React.FC<{ semester: string, courses: string[] }> = ({ semester, courses }) => {
     return (
-        <Col className="col-3">
+        <Col className="col-lg-3">
             <h2>{semester}</h2>
             <Accordion>
                 {courses.map((course, index) => {
