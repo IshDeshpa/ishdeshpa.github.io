@@ -14,4 +14,7 @@
     p {
         font-size: larger;
     }
+    img {
+        @extend .img-fluid
+    }
 }

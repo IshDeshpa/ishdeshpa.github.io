@@ -17,14 +17,16 @@ const MyPost: React.FC<{md: string}> = ({md}) => {
                 <h3 className='fw-bold text-decoration-underline'>{mdPostMetadata.metadata['title']}</h3>
                 <p className='text-muted'>{date}</p>
 
-                <Markdown className="post-body"
-                components={{
-                    h1: 'h2',
-                    h2: 'h3',
-                    h3: 'h4',
-                }}>
-                    {mdPostMetadata.markdown}
-                </Markdown>
+                <div style={{ wordWrap: 'break-word' }}>
+                    <Markdown className="post-body"
+                    components={{
+                        h1: 'h2',
+                        h2: 'h3',
+                        h3: 'h4',
+                    }}>
+                        {mdPostMetadata.markdown}
+                    </Markdown>
+                </div>
             </div>
         </>
     );
