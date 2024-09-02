@@ -4,6 +4,7 @@ import MyNavbar from './components/navbar/Navbar';
 import MyJumbotron from './components/jumbotron/Jumbotron';
 import MyBlog from './components/pages/Blog';
 import MyExperience from './components/pages/Experience';
+import MyResume from './components/pages/Resume';
 
 function App() {
   return (
@@ -11,6 +12,7 @@ function App() {
       <MyNavbar />
       <MyJumbotron />
       <MyExperience />
+      <MyResume />
       <MyBlog />
     </>
   )
