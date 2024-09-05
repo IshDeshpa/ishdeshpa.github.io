@@ -39,6 +39,18 @@ jobs:
         run: npm ci
       - name: Build
         run: npm run build
+      - name: Convert to pdf
+        id: convert-to-pdf
+        uses: closoco/pdflatex-action@v1.0.0
+        with:
+          texFile: ./src/components/pages/resume.tex
+      - name: Copy
+        run: cp resume.pdf ./dist/resume.pdf
+      - name: Store pdf
+        uses: actions/upload-artifact@v2
+        with:
+          name: resume
+          path: ./dist/resume.pdf
       - name: Setup Pages
         uses: actions/configure-pages@v4
       - name: Upload artifact

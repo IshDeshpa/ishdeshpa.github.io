@@ -1,0 +1,117 @@
+\documentclass{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{enumitem}
+\usepackage{helvet}
+\usepackage[T1]{fontenc}
+\usepackage{xcolor}
+\pagenumbering{gobble}
+
+\renewcommand{\familydefault}{\sfdefault}
+
+\newcommand{\sectionHeader}[1]{%
+    \vspace{-1.5\baselineskip}
+    \section*{\MakeUppercase{\large #1}} % Make the header text smaller
+    \vspace{-1.75\baselineskip} % Adjust the value to make it closer
+    \color{teal}
+    \rule{\textwidth}{2pt} % Add a horizontal line
+    \color{black}
+    \vspace{-1.5\baselineskip}
+}
+
+\newcommand{\role}[3]{
+    \textit{#1} \hfill \textit{#2} \\[0pt]
+    #3
+}
+
+\newcommand{\sectionItem}[5]{ % Specify four parameters
+    % Name, Date, Role, Location, Description
+    \textbf{#1} \hfill \textbf{#2} \\[0pt]
+    \role{#3}{#4}{#5}    % Use the role command to specify the role and location
+    \vspace{10pt}
+}
+
+\linespread{1}
+\setlist[itemize]{label=\textbullet, noitemsep, topsep=0pt, leftmargin=15pt}
+
+% ----------------------------------------------------------------
+
+\begin{document}
+\begin{center}
+    \textbf{\LARGE Ishan Deshpande}
+\end{center}
+
+\begin{center}
+    \textbf{\small (512) 721-8095 | ishdeshpa@utexas.edu | ishdeshpa.com | linkedin.com/in/ishdeshpa/}
+\end{center}
+
+\sectionHeader{education}       
+\begin{flushleft}
+    \vspace{2.5pt}
+    \textbf{\large UT Austin} \\
+    \textbf{B.S. in Electrical and Computer Engineering} \hfill \textbf{May 2025} \\
+    \textbf{M.S. in Electrical and Computer Engineering (Comp. Arch/Embedded Systems)} \hfill \textbf{May 2026} \\
+    \textit{3.78 GPA} \\
+    \underline{Relevant Coursework:} Embedded Systems Lab, Compilers, Algorithms, Operating Systems, Data Science Lab, Digital Logic Design, Computer Architecture, Senior Design
+\end{flushleft}
+
+\sectionHeader{experience}
+\begin{flushleft}
+    \sectionItem{Tesla}{May 2024 - Aug 2024}{Body Controls Firmware}{Palo Alto, CA}{
+        \begin{itemize}
+            \item[\textbullet] Developed, tested, and debugged firmware for vehicle control modules on Models X, Y, S, 3, and Cybertruck
+            \item[\textbullet] Assisted with bring-up of platform wide tooling such as PC-Lint and EEPROM lifetime logging
+        \end{itemize}   
+    }
+    
+    \sectionItem{Garmin}{May 2023 - Aug 2023}{Flight Control Systems Firmware Engineer}{Olathe, KS}{
+        \begin{itemize}
+            \item[\textbullet] Wrote system-level tests in Python for an integrated flight deck involving vertical navigation of aircraft
+            \item[\textbullet] Collaborated with the Aviation Flight Control Systems team on feature development
+        \end{itemize}
+    }
+
+    \sectionItem{University of Texas at Austin}{Jan 2023 - Present}{Operating Systems TA}{Austin, TX}{
+        \begin{itemize}
+            \item[\textbullet] Assist students with understanding course material and debugging Stanford PintOS projects
+        \end{itemize}
+        \vspace{5pt}
+        \role{Embedded Systems Tutor}{}{
+            \begin{itemize}
+                \item[\textbullet] Instructed 5 - 10 students twice a week in basic embedded systems concepts (interrupts, DAC/ADC, finite state machines, serial communication, etc.)
+            \end{itemize}
+        }
+    }
+
+    \sectionItem{EnergyX}{May 2022 - Aug 2022}{Automation and Controls Intern}{Austin, TX}{
+        \begin{itemize}
+            \item[\textbullet] Utilized Programmable Logic Controllers to streamline the lithium extraction process
+            \item[\textbullet] Wired and tested a control panel to meet prototype specifications
+        \end{itemize}
+    }
+\end{flushleft}
+
+
+\sectionHeader{activities and projects}
+\begin{flushleft}
+    \sectionItem{Longhorn Racing Solar Car}{Sept 2021 - Present}{Platform Team Lead}{}{
+        \begin{itemize}
+            \item[\textbullet] Programming in an RTOS context for our shared platform of ARM-based embedded systems
+            \item[\textbullet] Designing hardware \& software developer tooling for use in bench testing (USB Type-C Power Supply, BSP library for STM devices)
+        \end{itemize}
+    }
+    \sectionItem{UT Embedded Systems Lab Design Competition - 3rd Place}{Apr 2024}{Embedded Software Engineer}{}{
+        \begin{itemize}
+            \item[\textbullet] Worked with a team of 4 on a GameBoy emulator on a TI microprocessor
+            \item[\textbullet] Developing a full circuit board in KiCAD and worked with protocols such as SPI, QuadSPI, and 16-bit parallel
+        \end{itemize}
+    }
+\end{flushleft}
+
+
+\begin{flushleft}
+    \rule{\textwidth}{1pt}
+    \underline{Tools:} C/C++, KiCAD, Linux, Python, OS \& RTOS Development, Git, Java \\
+    \underline{Interests:} Music Production, Table Tennis
+\end{flushleft}
+
+\end{document}
