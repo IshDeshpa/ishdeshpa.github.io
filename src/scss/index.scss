@@ -26,7 +26,9 @@ $theme-colors-rgb: map-loop($theme-colors, to-rgb, "$value");
 
 @import "../../node_modules/bootstrap/scss/bootstrap";
 
-$body-background-color: color-mix(in oklab, $subtext1, $lavender);
+// $body-background-color: color-mix(in oklab, $subtext1, $lavender);
+$body-background-color: #efefef;
+
 body {
     background-color: $body-background-color;
 }
