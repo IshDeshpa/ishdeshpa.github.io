@@ -11,8 +11,8 @@ function App() {
     <>
       <MyNavbar />
       <MyJumbotron />
-      <MyExperience />
       <MyResume />
+      <MyExperience />  
       <MyBlog />
     </>
   )

@@ -24,7 +24,7 @@ const MyExperience: React.FC = () => {
     return (
         <div className="m-2 p-2 experience" id="Experience">
             <h1 className="fw-bold text-decoration-underline">Experience</h1>
-            <Row className="scrollable flex-row flex-nowrap mt-4 pb-4 pt-2">
+            <Row className="mt-4 pb-4 pt-2">
                 {Object.keys(coursesBySemester).sort((a, b) => {
                     // Convert semester strings to date objects for comparison
                     const sortOrder = ['Spring', 'Summer', 'Fall'];
@@ -42,9 +42,11 @@ const MyExperience: React.FC = () => {
                         return yearB - yearA;
                     }
                 }).map((semester, index) => (
-                    <MySemester key={index} semester={semester} courses={coursesBySemester[semester]}></MySemester>
+                    // <div key={index} className="col-12 col-md-6 col-lg-4 mb-4">
+                        <MySemester semester={semester} courses={coursesBySemester[semester]} />
+                    // </div>
                 ))}
-            </Row>
+            </Row>  
         </div>
     );
 };
