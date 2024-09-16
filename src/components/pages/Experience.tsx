@@ -42,9 +42,7 @@ const MyExperience: React.FC = () => {
                         return yearB - yearA;
                     }
                 }).map((semester, index) => (
-                    // <div key={index} className="col-12 col-md-6 col-lg-4 mb-4">
-                        <MySemester semester={semester} courses={coursesBySemester[semester]} />
-                    // </div>
+                    <MySemester semester={semester} key={index} courses={coursesBySemester[semester]} />
                 ))}
             </Row>  
         </div>
