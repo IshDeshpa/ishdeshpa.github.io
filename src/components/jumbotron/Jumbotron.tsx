@@ -22,11 +22,9 @@ const MyJumbotron: React.FC = () => {
                             <div className="image-overlay"></div>
                         </div>
                     </div>
-                    <div className="footer col-12 text-left  mt-4">
-                        <a href="https://github.com/IshDeshpa/ishdeshpa.github.io" target="_blank" rel="noopener noreferrer" className="text-light">
-                            Written in ReactJS and Vite, using GitHub Pages
-                        </a>
-                    </div>
+                    <a href="https://github.com/IshDeshpa/ishdeshpa.github.io" target="_blank" rel="noopener noreferrer" className="text-light text-decoration-none jumbotron-footer">
+                        <small>Written in ReactJS and Vite, using GitHub Pages</small>
+                    </a>
                 </div>
             </Container>
         </div>
