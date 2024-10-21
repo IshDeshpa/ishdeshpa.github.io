@@ -4,9 +4,17 @@
 \usepackage{helvet}
 \usepackage[T1]{fontenc}
 \usepackage{xcolor}
+\usepackage{hyperref}
 \pagenumbering{gobble}
 \input{glyphtounicode}
 \pdfgentounicode=1 
+
+\hypersetup{
+    pdfauthor={Ishan Deshpande},
+    pdftitle={Resume},
+    pdfsubject={Resume},
+    pdfkeywords={resume, Ishan Deshpande, electrical engineering, computer engineering}
+}
 
 \renewcommand{\familydefault}{\sfdefault}
 
@@ -18,6 +26,7 @@
     \rule{\textwidth}{2pt} % Add a horizontal line
     \color{black}
     \vspace{-1.5\baselineskip}
+    \pdfbookmark[1]{#1}{#1}
 }
 
 \newcommand{\role}[3]{
@@ -29,7 +38,7 @@
     % Name, Date, Role, Location, Description
     \textbf{#1} \hfill \textbf{#2} \\[0pt]
     \role{#3}{#4}{#5}    % Use the role command to specify the role and location
-    \vspace{10pt}
+    \vspace{5pt}
 }
 
 \linespread{1}
@@ -43,7 +52,7 @@
 \end{center}
 
 \begin{center}
-    \textbf{\small (512) 721-8095 | ishdeshpa@utexas.edu | ishdeshpa.com | linkedin.com/in/ishdeshpa/}
+    \textbf{\small (512) 721-8095 | \href{mailto:ishdeshpa@utexas.edu}{ishdeshpa@utexas.edu} | \href{http://ishdeshpa.com}{ishdeshpa.com} | \href{http://linkedin.com/in/ishdeshpa/}{linkedin.com/in/ishdeshpa/}}
 \end{center}
 
 \sectionHeader{education}       
@@ -51,7 +60,7 @@
     \vspace{2.5pt}
     \textbf{\large UT Austin} \\
     \textbf{B.S. in Electrical and Computer Engineering} \hfill \textbf{May 2025} \\
-    \textbf{M.S. in Electrical and Computer Engineering (Spec. Embedded Systems/Comp. Arch.)} \hfill \textbf{May 2026} \\
+    \textbf{M.S. in Electrical and Computer Engineering (Spec. Embedded Systems)} \hfill \textbf{May 2026} \\
     \textit{3.78 Undergraduate GPA} \\
     \underline{Relevant Coursework:} ML/HW Codesign, Computer Architecture, Embedded Systems Lab, Compilers, Algorithms, Operating Systems, Data Science Lab, Digital Logic Design
 \end{flushleft}
@@ -76,7 +85,7 @@
         \begin{itemize}
             \item[\textbullet] Assist students with understanding course material and debugging Stanford PintOS projects
         \end{itemize}
-        \vspace{5pt}
+        \vspace{2.5pt}
         \role{Embedded Systems Tutor}{}{
             \begin{itemize}
                 \item[\textbullet] Instructed 5 - 10 students twice a week in basic embedded systems concepts (interrupts, DAC/ADC, finite state machines, serial communication, etc.)
@@ -92,14 +101,23 @@
     }
 \end{flushleft}
 
+\vspace{-0.5\baselineskip}
 
 \sectionHeader{activities and projects}
 \begin{flushleft}
     \sectionItem{Longhorn Racing Solar Car}{Sept 2021 - Present}{Platform Team Lead}{}{
         \begin{itemize}
-            \item[\textbullet] Programming in an RTOS context for our shared platform of ARM-based embedded systems
-            \item[\textbullet] Designing hardware \& software developer tooling for use in bench testing (USB Type-C Power Supply, BSP library for STM devices)
+            \item[\textbullet] Designing hardware \& software developer tooling for use in bench testing: UART/CAN Bootloader, Board Support Package for MCU peripherals, USB Type-C 12V/5V Power Supply
+            \item[\textbullet] Streamlining Makefile-based build system for the team's shared codebase 
         \end{itemize}
+        \vspace{2.5pt}
+        \role{Controls Team Lead}{}{
+            \begin{itemize}
+                \item[\textbullet] Programmed in an RTOS context for our shared platform of ARM-based STM32F4/L4 microcontrollers
+                \item[\textbullet] Interfaced with display, pedals, lights, and motor controller
+                \item[\textbullet] Managed a team of 12 through a traditional software workflow with Git/GitHub
+            \end{itemize}
+        }
     }
     \sectionItem{UT Embedded Systems Lab Design Competition - 3rd Place}{Apr 2024}{Embedded Software Engineer}{}{
         \begin{itemize}
@@ -109,10 +127,11 @@
     }
 \end{flushleft}
 
+\vspace{-1.5\baselineskip}
 
 \begin{flushleft}
     \rule{\textwidth}{1pt}
-    \underline{Tools:} C/C++, KiCAD, Linux, Python, OS \& RTOS Development, Git, Java \\
+    \underline{Skills:} C/C++, KiCAD, Linux, Python, OS \& RTOS Development, Git, Java \\
     \underline{Interests:} Music Production, Table Tennis
 \end{flushleft}
 
