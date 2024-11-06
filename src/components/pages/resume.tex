@@ -1,10 +1,19 @@
 \documentclass{article}
-\usepackage[margin=1in]{geometry}
+\usepackage{geometry}
 \usepackage{enumitem}
 \usepackage{helvet}
 \usepackage[T1]{fontenc}
 \usepackage{xcolor}
 \usepackage{hyperref}
+
+\geometry{
+    letterpaper,
+    left=0.7in,
+    right=0.7in,
+    top=0.7in,
+    bottom=0.7in
+}
+
 \pagenumbering{gobble}
 \input{glyphtounicode}
 \pdfgentounicode=1 
@@ -21,7 +30,7 @@
 \newcommand{\sectionHeader}[1]{%
     \vspace{-1.5\baselineskip}
     \section*{\MakeUppercase{\large #1}} % Make the header text smaller
-    \vspace{-1.75\baselineskip} % Adjust the value to make it closer
+    \vspace{-1.75\baselineskip}
     \color{teal}
     \rule{\textwidth}{2pt} % Add a horizontal line
     \color{black}
@@ -38,7 +47,6 @@
     % Name, Date, Role, Location, Description
     \textbf{#1} \hfill \textbf{#2} \\[0pt]
     \role{#3}{#4}{#5}    % Use the role command to specify the role and location
-    \vspace{5pt}
 }
 
 \linespread{1}
@@ -51,13 +59,16 @@
     \textbf{\LARGE Ishan Deshpande}
 \end{center}
 
+\vspace{-10pt}
+
 \begin{center}
     \textbf{\small (512) 721-8095 | \href{mailto:ishdeshpa@utexas.edu}{ishdeshpa@utexas.edu} | \href{http://ishdeshpa.com}{ishdeshpa.com} | \href{http://linkedin.com/in/ishdeshpa/}{linkedin.com/in/ishdeshpa/}}
 \end{center}
 
+\vspace{-1pt}
+
 \sectionHeader{education}       
 \begin{flushleft}
-    \vspace{2.5pt}
     \textbf{\large UT Austin} \\
     \textbf{B.S. in Electrical and Computer Engineering} \hfill \textbf{May 2025} \\
     \textbf{M.S. in Electrical and Computer Engineering (Spec. Embedded Systems)} \hfill \textbf{May 2026} \\
@@ -65,74 +76,81 @@
     \underline{Relevant Coursework:} ML/HW Codesign, Computer Architecture, Embedded Systems Lab, Compilers, Algorithms, Operating Systems, Data Science Lab, Digital Logic Design
 \end{flushleft}
 
+\vspace{-1pt}
+
 \sectionHeader{experience}
 \begin{flushleft}
     \sectionItem{Tesla}{May 2024 - Aug 2024}{Body Controls Firmware Intern}{Palo Alto, CA}{
         \begin{itemize}
-            \item[\textbullet] Developed, tested, and debugged firmware for vehicle control modules on Models X, Y, S, 3, and Cybertruck
-            \item[\textbullet] Assisted with bring-up of platform wide tooling such as PC-Lint and EEPROM lifetime logging
+            \item Developed, tested, and debugged firmware for vehicle control modules on Models X, Y, S, 3, and Cybertruck using C
+            \item Assisted in the bring-up of platform-wide tooling such as PC-Lint and EEPROM lifetime logging
+            \item Interfaced with Renesas and Freescale microcontrollers, working with CAN/LIN and SPI protocols in a safety-critical environment
         \end{itemize}   
     }
     
     \sectionItem{Garmin}{May 2023 - Aug 2023}{Flight Control Systems Firmware Intern}{Olathe, KS}{
         \begin{itemize}
-            \item[\textbullet] Wrote system-level tests in Python for an integrated flight deck involving vertical navigation of aircraft
-            \item[\textbullet] Collaborated with the Aviation Flight Control Systems team on feature development
+            \item Wrote system-level SIL tests in Python for an integrated flight deck involving vertical navigation of aircraft
+            \item Developed on-board HIL unit tests for flight control modules using C
         \end{itemize}
     }
 
     \sectionItem{University of Texas at Austin}{Jan 2023 - Present}{Operating Systems TA}{Austin, TX}{
         \begin{itemize}
-            \item[\textbullet] Assist students with understanding course material and debugging Stanford PintOS projects
+            \item Assist a class of 70 students in understanding course material
+            \item Debug projects (User Programs, Virtual Memory, Filesystems) in Stanford's PintOS
         \end{itemize}
-        \vspace{2.5pt}
         \role{Embedded Systems Tutor}{}{
             \begin{itemize}
-                \item[\textbullet] Instructed 5 - 10 students twice a week in basic embedded systems concepts (interrupts, DAC/ADC, finite state machines, serial communication, etc.)
+                \item Instructed 10 - 20 students in basic embedded systems concepts (interrupts, DAC/ADC, finite state machines, serial communication, etc.)
             \end{itemize}
         }
     }
 
     \sectionItem{EnergyX}{May 2022 - Aug 2022}{Automation and Controls Intern}{Austin, TX}{
         \begin{itemize}
-            \item[\textbullet] Utilized Programmable Logic Controllers to streamline the lithium extraction process
-            \item[\textbullet] Wired and tested a control panel to meet prototype specifications
+            \item Utilized Programmable Logic Controllers to streamline the lithium extraction process
+            \item Wired and tested a control panel to meet prototype specifications
         \end{itemize}
     }
 \end{flushleft}
 
-\vspace{-0.5\baselineskip}
+\vspace{-1pt}
 
 \sectionHeader{activities and projects}
 \begin{flushleft}
     \sectionItem{Longhorn Racing Solar Car}{Sept 2021 - Present}{Platform Team Lead}{}{
         \begin{itemize}
-            \item[\textbullet] Designing hardware \& software developer tooling for use in bench testing: UART/CAN Bootloader, Board Support Package for MCU peripherals, USB Type-C 12V/5V Power Supply
-            \item[\textbullet] Streamlining Makefile-based build system for the team's shared codebase 
+            \item Design hardware and software developer tooling for bench testing
+            \item Streamline Makefile-based build system for the team's shared codebase 
+            \item Develop a UART/CAN bootloader for convenient production firmware updates, including a custom linker script
+            \item Designed a power supply PCB featuring USB-C Power Delivery input and 12V output for bench testing
         \end{itemize}
-        \vspace{2.5pt}
         \role{Controls Team Lead}{}{
             \begin{itemize}
-                \item[\textbullet] Programmed in an RTOS context for our shared platform of ARM-based STM32F4/L4 microcontrollers
-                \item[\textbullet] Interfaced with display, pedals, lights, and motor controller
-                \item[\textbullet] Managed a team of 12 through a traditional software workflow with Git/GitHub
+                \item Programmed in an RTOS context for our shared platform of ARM-based STM32 microcontrollers
+                \item Interfaced with display, pedals, lights, and motor controller
+                \item Managed a team of 12 through a traditional software workflow with Git/GitHub
             \end{itemize}
         }
     }
+    \sectionItem{UT Systems and Machine Learning Research}{Oct 2024 - Present}{Undergraduate Research Assistant}{}{
+        \begin{itemize}
+            \item Looking into energy optimization of serverless computing platforms for large datacenters using ML models
+        \end{itemize}
+    }
     \sectionItem{UT Embedded Systems Lab Design Competition - 3rd Place}{Apr 2024}{Embedded Software Engineer}{}{
         \begin{itemize}
-            \item[\textbullet] Worked with a team of 4 on a GameBoy emulator on a TI microprocessor
-            \item[\textbullet] Developing a full circuit board in KiCAD and worked with protocols such as SPI, QuadSPI, and 16-bit parallel
+            \item Collaborated with a team of 4 to develop a GameBoy emulator on a TM4C microcontroller
+            \item Designed a circuit board in KiCAD and worked with protocols such as SPI/QSPI and 16-bit parallel
         \end{itemize}
     }
 \end{flushleft}
 
-\vspace{-1.5\baselineskip}
-
 \begin{flushleft}
     \rule{\textwidth}{1pt}
-    \underline{Skills:} C/C++, KiCAD, Linux, Python, OS \& RTOS Development, Git, Java \\
-    \underline{Interests:} Music Production, Table Tennis
+    \underline{Skills:} C/C++, KiCAD, Python, Kernel Development, Application Development for RTOS, Linux, Git, Java \\
+    \underline{Interests:} Table Tennis, Music Production, Piano
 \end{flushleft}
 
 \end{document}
