@@ -1,4 +1,4 @@
-\documentclass{article}
+\documentclass[10pt]{article}
 \usepackage{geometry}
 \usepackage{enumitem}
 \usepackage{helvet}
@@ -8,10 +8,10 @@
 
 \geometry{
     letterpaper,
-    left=0.7in,
-    right=0.7in,
-    top=0.7in,
-    bottom=0.7in
+    left=0.5in,
+    right=0.5in,
+    top=0.5in,
+    bottom=0.5in
 }
 
 \pagenumbering{gobble}
@@ -28,13 +28,13 @@
 \renewcommand{\familydefault}{\sfdefault}
 
 \newcommand{\sectionHeader}[1]{%
-    \vspace{-1.5\baselineskip}
+    \vspace{-1.25\baselineskip}
     \section*{\large \MakeUppercase{#1}}
-    \vspace{-1.75\baselineskip}
-    \color{teal}
-    \rule{\textwidth}{2pt} % Add a horizontal line
-    \color{black}
     \vspace{-1.5\baselineskip}
+    \color{teal}
+    \rule{\textwidth}{1.5pt} % Add a horizontal line
+    \color{black}
+    \vspace{-1.25\baselineskip}
     \pdfbookmark[1]{#1}{#1}
 }
 
@@ -50,7 +50,7 @@
 }
 
 \linespread{1}
-\setlist[itemize]{label=\textbullet, noitemsep, topsep=0pt, leftmargin=15pt}
+\setlist[itemize]{label=\textbullet, noitemsep, topsep=0pt, leftmargin=10pt}
 
 % ----------------------------------------------------------------
 
@@ -65,33 +65,35 @@
     \textbf{\small (512) 721-8095 | \href{mailto:ishdeshpa@utexas.edu}{ishdeshpa@utexas.edu} | \href{http://ishdeshpa.com}{ishdeshpa.com} | \href{http://linkedin.com/in/ishdeshpa/}{linkedin.com/in/ishdeshpa/}}
 \end{center}
 
-\vspace{-1pt}
+\vspace{-15pt}
 
 \sectionHeader{Education}       
 \begin{flushleft}
     \textbf{\large UT Austin} \\
     \textbf{B.S. in Electrical and Computer Engineering} \hfill \textbf{May 2025} \\
     \textbf{M.S. in Electrical and Computer Engineering (Spec. Embedded Systems)} \hfill \textbf{May 2026} \\
-    \textit{3.78 Undergraduate GPA} \\
-    \underline{Relevant Coursework:} ML/HW Codesign, Computer Architecture, Embedded Systems Lab, Compilers, Algorithms, Operating Systems, Data Science Lab, Digital Logic Design
+    \textit{3.79 Undergraduate GPA} \\
+    \textbf{Relevant Coursework:} ML/HW Codesign, Computer Architecture, Embedded Systems Lab, Compilers, Algorithms, Operating Systems, Data Science Lab, Digital Logic Design
 \end{flushleft}
 
-\vspace{-1pt}
+\vspace{-5pt}
 
 \sectionHeader{Experience}
 \begin{flushleft}
     \sectionItem{Tesla}{May 2024 - Aug 2024}{Body Controls Firmware Intern}{Palo Alto, CA}{
         \begin{itemize}
-            \item Developed, tested, and debugged firmware for vehicle control modules on Models X, Y, S, 3, and Cybertruck using C
-            \item Assisted in the bring-up of platform-wide tooling such as PC-Lint and EEPROM lifetime logging
-            \item Interfaced with Renesas and Freescale microcontrollers, working with CAN/LIN and SPI protocols in a safety-critical environment
+            \item Developed, tested, and debugged firmware for vehicle control modules on all active vehicles using C and FreeRTOS
+            \item Implemented platform-wide tooling including PC-Lint and EEPROM lifetime logging
+            \item Worked with Renesas and Freescale microcontrollers
+            \item Utilized CAN/LIN and SPI protocols to interface with heaters, trailer brake sensors, overhead lights, and more
         \end{itemize}   
     }
     
     \sectionItem{Garmin}{May 2023 - Aug 2023}{Flight Control Systems Firmware Intern}{Olathe, KS}{
         \begin{itemize}
             \item Wrote system-level SIL tests in Python for an integrated flight deck involving vertical navigation of aircraft
-            \item Developed on-board HIL unit tests for flight control modules using C
+            \item Developed on-board HIL unit tests for flight control modules using C in an RTOS environment
+            \item Used SVN for version control and JIRA for task tracking
         \end{itemize}
     }
 
@@ -115,7 +117,7 @@
     }
 \end{flushleft}
 
-\vspace{-1pt}
+\vspace{-7.5pt}
 
 \sectionHeader{Activities and Projects}
 \begin{flushleft}
@@ -124,7 +126,7 @@
             \item Design hardware and software developer tooling for bench testing
             \item Streamline Makefile-based build system for the team's shared codebase 
             \item Develop a UART/CAN bootloader for convenient production firmware updates, including a custom linker script
-            \item Designed a power supply PCB featuring USB-C Power Delivery input and 12V output for bench testing
+            \item Designing a power supply PCB featuring USB-C Power Delivery input and 12V output for bench testing
         \end{itemize}
         \role{Controls Team Lead}{}{
             \begin{itemize}
@@ -136,13 +138,18 @@
     }
     \sectionItem{UT Systems and Machine Learning Research}{Oct 2024 - Present}{Undergraduate Research Assistant}{}{
         \begin{itemize}
-            \item Looking into energy optimization of serverless computing platforms for large datacenters using ML models
+            \item Developing a machine learning model to predict the energy consumption of a serverless computing platform
         \end{itemize}
     }
     \sectionItem{UT Embedded Systems Lab Design Competition - 3rd Place}{Apr 2024}{Embedded Software Engineer}{}{
         \begin{itemize}
             \item Collaborated with a team of 4 to develop a GameBoy emulator on a TM4C microcontroller
             \item Designed a circuit board in KiCAD and worked with protocols such as SPI/QSPI and 16-bit parallel
+        \end{itemize}
+    }
+    \sectionItem{Data Science Lab Project}{Nov 2023 - Dec 2023}{ML Engineer}{}{
+        \begin{itemize}    
+            \item Stacked ML models to restore portraits on UT TACC’S Frontera supercomputer for the UT History Department
         \end{itemize}
     }
 \end{flushleft}
