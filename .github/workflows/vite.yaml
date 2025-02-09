@@ -41,9 +41,9 @@ jobs:
         run: npm run build
       - name: Convert to pdf
         id: convert-to-pdf
-        uses: closoco/pdflatex-action@v1.0.0
+        uses: xu-cheng/latex-action@v3
         with:
-          texFile: ./src/components/pages/resume.tex
+          root_file: ./src/components/pages/resume.tex
       - name: Copy
         run: cp resume.pdf ./dist/resume.pdf
       - name: Store pdf
