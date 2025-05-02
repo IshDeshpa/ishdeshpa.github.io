@@ -1,20 +1,56 @@
 #!/bin/bash
 
-TDAY=$(date +%F)  # Get today's date in YYYY-MM-DD format
-CURRENT_TIME=$(date +"%I:%M:%S%p")
+TDAY=$(date +%F)
+CURRENT_TIME=$(date +"%I:%M:%S%p")  # Use - instead of : to avoid issues in filenames
+NEW_POST="ublog/$TDAY-$CURRENT_TIME.md"
 
-# Create a new file with today's date, the next available number, and the current time
-NEW_POST="posts/$TDAY-$CURRENT_TIME.md"
+# Initialize variables
+HEADING=""
+CONTENT=""
+GIT_PUSH=false
 
-# Open the new post in nvim (you could modify this section to include the current time in the content if needed)
-nvim "$NEW_POST"
+# Help text
+usage() {
+  echo "Usage: $0 [-h heading] [-m markdown] [-g]"
+  echo "  -h heading     : Specify post heading (optional)"
+  echo "  -m markdown    : Specify post content (optional)"
+  echo "  -g             : Push to git after generating post (optional)"
+  exit 1
+}
 
+# Parse flags
+while getopts ":h:m:g" opt; do
+  case $opt in
+    h) HEADING="$OPTARG" ;;
+    m) CONTENT="$OPTARG" ;;
+    g) GIT_PUSH=true ;;
+    \?) echo "Invalid option: -$OPTARG" >&2; usage ;;
+    :) echo "Option -$OPTARG requires an argument." >&2; usage ;;
+  esac
+done
+
+# Create post file
+if [ -n "$HEADING" ] || [ -n "$CONTENT" ]; then
+  {
+    if [ -n "$HEADING" ]; then
+      echo "# $HEADING"
+    fi
+    echo
+    if [ -n "$CONTENT" ]; then
+      echo "$CONTENT"
+    fi
+  } > "$NEW_POST"
+else
+  nvim "$NEW_POST"
+fi
+
+# Run post generation
 if [ -e "$NEW_POST" ]; then
-  # Run the script to generate the post JSON (assuming this is for generating metadata)
   ./generate-postjson.sh
 
-  # Optionally, add and commit to git (uncomment if needed)
-  # git add "$NEW_POST"
-  # git commit -m "$TDAY-$NEXT_NUMBER"
-  # git push
+  if [ "$GIT_PUSH" = true ]; then
+    git add "$NEW_POST"
+    git commit -m "Post: $TDAY $CURRENT_TIME"
+    git push
+  fi
 fi

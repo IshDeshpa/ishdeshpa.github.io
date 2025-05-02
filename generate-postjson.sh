@@ -1,8 +1,8 @@
 #!/bin/bash
 
-# Directory containing your markdown posts
-POSTS_DIR="posts"
-OUTPUT_FILE="post-list.json"
+# Directory containing your markdown ublog
+POSTS_DIR="ublog"
+OUTPUT_FILE="ublog-list.json"
 
 # Start JSON array
 echo "[" > "$OUTPUT_FILE"
