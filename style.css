@@ -1,0 +1,29 @@
+body {
+  font-family: 'Brush Script MT', cursive;
+  background-color: rgb(230, 237, 247)
+}
+
+#title{
+  margin-bottom: 4px
+}
+
+#name{
+  margin-top: 4px
+}
+
+.semester{
+  border:2px solid black;
+}
+
+.semester-title{
+  margin-top: 4px;
+  margin-bottom: 4px
+}
+
+.class{
+  margin-bottom: 5px
+}
+
+.post h2 {
+  margin-top: 4px;
+}

@@ -1,0 +1,20 @@
+#!/bin/bash
+
+TDAY=$(date +%F)  # Get today's date in YYYY-MM-DD format
+CURRENT_TIME=$(date +"%I:%M:%S%p")
+
+# Create a new file with today's date, the next available number, and the current time
+NEW_POST="posts/$TDAY-$CURRENT_TIME.md"
+
+# Open the new post in nvim (you could modify this section to include the current time in the content if needed)
+nvim "$NEW_POST"
+
+if [ -e "$NEW_POST" ]; then
+  # Run the script to generate the post JSON (assuming this is for generating metadata)
+  ./generate-postjson.sh
+
+  # Optionally, add and commit to git (uncomment if needed)
+  # git add "$NEW_POST"
+  # git commit -m "$TDAY-$NEXT_NUMBER"
+  # git push
+fi
