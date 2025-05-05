@@ -1,6 +1,6 @@
 body {
   font-family: 'Brush Script MT', cursive;
-  background-color: rgb(230, 237, 247)
+  background-color: rgb(230, 237, 247);
 }
 
 #title{
@@ -12,7 +12,9 @@ body {
 }
 
 .semester{
-  border:2px solid black;
+  outline: 2px solid black;
+  margin-top: -2px;
+  margin-bottom: -2px;
 }
 
 .semester-title{
@@ -26,4 +28,21 @@ body {
 
 .post h2 {
   margin-top: 4px;
+}
+
+#feed {
+  display: flex 
+}
+
+#posts {
+  width:80%;
+  flex: 4;
+  margin-right: 10px;
+}
+
+#gh {
+  width: 19%;
+  flex: 1;
+  float:right;
+  outline: 2px solid black;
 }

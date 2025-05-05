@@ -46,7 +46,7 @@ fi
 
 # Run post generation
 if [ -e "$NEW_POST" ]; then
-  ./generate-postjson.sh
+  ./ublog-generate.sh
 
   if [ "$GIT_PUSH" = true ]; then
     git add "$NEW_POST"
