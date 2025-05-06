@@ -46,3 +46,25 @@ body {
   float:right;
   outline: 2px solid black;
 }
+
+#about-me {
+  display: flex;
+  align-items: flex-start;
+}
+
+#about-desc {
+  flex: 4;
+  margin-right: 2%;
+}
+
+#profile {
+  flex: 1;
+  max-width: 25%; 
+  margin-left: auto; 
+}
+
+#profile img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
