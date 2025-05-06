@@ -3,6 +3,28 @@ body {
   background-color: rgb(230, 237, 247);
 }
 
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+}
+
+.nav li {
+  float: none; /* Remove float */
+}
+
+.nav li a {
+  display: block;
+  padding: 14px 16px;
+}
+
 #title{
   margin-bottom: 4px
 }

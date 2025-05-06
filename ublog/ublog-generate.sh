@@ -1,13 +1,16 @@
 #!/bin/bash
 
-# Directory containing your markdown ublog
-POSTS_DIR="."
-OUTPUT_FILE="ublog-list.json"
+# Get the directory where this script is located
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+
+# Directory containing your markdown ublog files
+POSTS_DIR="$SCRIPT_DIR"
+OUTPUT_FILE="$SCRIPT_DIR/ublog-list.json"
 
 # Start JSON array
 echo "[" > "$OUTPUT_FILE"
 
-# Find all .md files, sort them (optional), and loop
+# Find all .md files, sort them, and loop
 first=true
 for file in $(find "$POSTS_DIR" -maxdepth 1 -name "*.md" | sort); do
     # Add a comma before each entry except the first
@@ -16,12 +19,12 @@ for file in $(find "$POSTS_DIR" -maxdepth 1 -name "*.md" | sort); do
     else
         echo "," >> "$OUTPUT_FILE"
     fi
-    # Append the file path as a JSON string
-    echo "  \"${file}\"" >> "$OUTPUT_FILE"
+    # Append the file path as a JSON string (relative to POSTS_DIR)
+    rel_path="${file#$SCRIPT_DIR/}"
+    echo "  \"${rel_path}\"" >> "$OUTPUT_FILE"
 done
 
 # End JSON array
 echo "]" >> "$OUTPUT_FILE"
 
 echo "Generated $OUTPUT_FILE"
-

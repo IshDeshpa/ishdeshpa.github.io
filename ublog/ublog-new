@@ -1,8 +1,11 @@
 #!/bin/bash
 
+# Get the directory where this script is located
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+
 TDAY=$(date +%F)
-CURRENT_TIME=$(date +"%I:%M:%S%p")  # Use - instead of : to avoid issues in filenames
-NEW_POST="ublog/$TDAY-$CURRENT_TIME.md"
+CURRENT_TIME=$(date +"%I:%M:%S%p")  # Replacing ":" with "-" for safe filenames
+NEW_POST="$SCRIPT_DIR/$TDAY-$CURRENT_TIME.md"
 
 # Initialize variables
 HEADING=""
@@ -46,11 +49,11 @@ fi
 
 # Run post generation
 if [ -e "$NEW_POST" ]; then
-  ./ublog-generate.sh
+  "$SCRIPT_DIR/ublog-generate.sh"
 
   if [ "$GIT_PUSH" = true ]; then
-    git add "$NEW_POST"
-    git commit -m "Post: $TDAY $CURRENT_TIME"
-    git push
+    git -C "$SCRIPT_DIR" add "$TDAY-$CURRENT_TIME.md"
+    git -C "$SCRIPT_DIR" commit -m "Post: $TDAY $CURRENT_TIME"
+    git -C "$SCRIPT_DIR" push
   fi
 fi
