@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Directory containing your markdown ublog
-POSTS_DIR="ublog"
+POSTS_DIR="."
 OUTPUT_FILE="ublog-list.json"
 
 # Start JSON array

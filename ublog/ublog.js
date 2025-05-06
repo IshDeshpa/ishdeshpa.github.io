@@ -75,7 +75,7 @@ $(function () {
 
     posts.forEach(function (postPath) {
       $.get(postPath, function (markdown) {
-        const html = marked.parse(markdown);
+	const html = marked.parse(markdown);
 	       
 	const filename = postPath.split('/').reverse()[0];
 	const dt = filename.replace('.md','');
