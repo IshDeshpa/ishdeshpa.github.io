@@ -1,10 +1,21 @@
 body {
   font-family: 'Roboto';
   background-color: #b9c9ed;
+  overflow: scroll;
+  scroll-behavior: smooth;
 }
 
 a {
   text-decoration: none;
+}
+
+iframe {
+  right: 0px;
+  width: 100%;
+  border: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
 }
 
 .header {
