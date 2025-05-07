@@ -5,6 +5,8 @@ $(function () {
       const fileName = postPath.split('/').pop();             // e.g., "my-post.md"
       const title = fileName.replace(/\.md$/, '');            // e.g., "my-post"
       const htmlFile = title + ".html";                       // e.g., "my-post.html"
+      
+      console.log(htmlFile)
 
       // Create a list item with a link
       $('#posts').append(
