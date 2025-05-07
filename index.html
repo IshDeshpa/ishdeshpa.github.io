@@ -6,6 +6,26 @@
     <title>ishdeshpa.com</title>
     <link href="style.css" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+      function resizeIframesPeriodically() {
+	$('iframe.resize-iframe').each(function () {
+	  var iframe = this;
+	  try {
+	    var doc = iframe.contentDocument || iframe.contentWindow.document;
+	    var newHeight = doc.body.scrollHeight + 20;
+	    if (iframe.height != newHeight) {
+	      iframe.style.height = newHeight + 'px';
+	    }
+	  } catch (e) {
+	    console.warn('Cannot access iframe content due to cross-origin restrictions.');
+	  }
+	});
+      }
+
+      // Resize every 500ms
+      setInterval(resizeIframesPeriodically, 500);
+    </script>
+
   </head>
   <body>
     <div class="header">
@@ -15,16 +35,16 @@
       </div>
       <ul class="nav">
 	<li>
-	  <a href="/blog"><div class="hover-effect">Blog</div></a>
+	  <a href="#school"><div class="hover-effect">School</div></a>
 	</li>
 	<li>
-	  <a href="/ublog"><div class="hover-effect">uBlog</div></a>
+	  <a href="#resume"><div class="hover-effect">Resume</div></a>
 	</li>
 	<li>
-	  <a href="/school"><div class="hover-effect">School</div></a>
+	  <a href="#ublog"><div class="hover-effect">uBlog</div></a>
 	</li>
 	<li>
-	  <a href="/resume"><div class="hover-effect">Resume</div></a>
+	  <a href="#blog"><div class="hover-effect">Blog</div></a>
 	</li>
       </ul>
     </div>
@@ -40,5 +60,11 @@
       </div>
       <img id="profile" src="profile.jpg">
     </div>
+    <h3 id="ublog">uBlog</h3>
+    <iframe height="500" src="/ublog"></iframe>
+    <h3 id="blog">Blog</h3>
+    <iframe class="resize-iframe" scrolling="no" src="/blog"></iframe>
+    <h3 id="school">School</h3>
+    <iframe class="resize-iframe" scrolling="no" src="/school"></iframe>
   </body>
 </html>
