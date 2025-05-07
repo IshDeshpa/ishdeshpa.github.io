@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Get the directory where this script is located
-SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+SCRIPT_DIR=/mnt/Work/ishdeshpa.github.io/ublog
 
 TDAY=$(date +%F)
 CURRENT_TIME=$(date +"%I:%M:%S%p")  # Replacing ":" with "-" for safe filenames
@@ -52,7 +52,7 @@ if [ -e "$NEW_POST" ]; then
   "$SCRIPT_DIR/ublog-generate.sh"
 
   if [ "$GIT_PUSH" = true ]; then
-    git -C "$SCRIPT_DIR" add "$TDAY-$CURRENT_TIME.md"
+    git -C "$SCRIPT_DIR" add "$TDAY-$CURRENT_TIME.md" "ublog-list.json"
     git -C "$SCRIPT_DIR" commit -m "Post: $TDAY $CURRENT_TIME"
     git -C "$SCRIPT_DIR" push
   fi
