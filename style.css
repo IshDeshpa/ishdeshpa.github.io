@@ -1,6 +1,10 @@
 body {
   font-family: 'Brush Script MT', cursive;
-  background-color: rgb(230, 237, 247);
+  background-color: #b9c9ed;
+}
+
+a {
+  text-decoration: none;
 }
 
 .header {
@@ -22,7 +26,9 @@ body {
 
 .nav li a {
   display: block;
-  padding: 14px 16px;
+  padding: 14px 16px; 
+  color: #8aadf4;
+  filter: brightness(55%);
 }
 
 .hover-effect {
