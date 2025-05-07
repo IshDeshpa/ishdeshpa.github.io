@@ -1,0 +1,159 @@
+\documentclass[10pt]{article}
+\usepackage{geometry}
+\usepackage{enumitem}
+\usepackage{helvet}
+\usepackage[T1]{fontenc}
+\usepackage{xcolor}
+\usepackage{hyperref}
+
+\geometry{
+    letterpaper,
+    left=0.5in,
+    right=0.5in,
+    top=0.5in,
+    bottom=0.5in
+}
+
+\pagenumbering{gobble}
+\input{glyphtounicode}
+\pdfgentounicode=1 
+
+\hypersetup{
+    pdfauthor={Ishan Deshpande},
+    pdftitle={Resume},
+    pdfsubject={Resume},
+    pdfkeywords={resume, Ishan Deshpande, electrical engineering, computer engineering}
+}
+
+\renewcommand{\familydefault}{\sfdefault}
+
+\newcommand{\sectionHeader}[1]{%
+    \vspace{-1.25\baselineskip}
+    \section*{\large \MakeUppercase{#1}}
+    \vspace{-1.5\baselineskip}
+    \color{teal}
+    \rule{\textwidth}{1.5pt} % Add a horizontal line
+    \color{black}
+    \vspace{-1.25\baselineskip}
+    \pdfbookmark[1]{#1}{#1}
+}
+
+\newcommand{\role}[3]{
+    \textit{#1} \hfill \textit{#2} \\[0pt]
+    #3
+}
+
+\newcommand{\sectionItem}[5]{ % Specify four parameters
+    % Name, Date, Role, Location, Description
+    \textbf{#1} \hfill \textbf{#2} \\[0pt]
+    \role{#3}{#4}{#5}    % Use the role command to specify the role and location
+}
+
+\linespread{1}
+\setlist[itemize]{label=\textbullet, noitemsep, topsep=0pt, leftmargin=10pt}
+
+% ----------------------------------------------------------------
+
+\begin{document}
+\begin{center}
+    \textbf{\LARGE Ishan Deshpande}
+\end{center}
+
+\vspace{-10pt}
+
+\begin{center}
+    \textbf{\small (512) 721-8095 | \href{mailto:ishdeshpa@utexas.edu}{ishdeshpa@utexas.edu} | \href{http://ishdeshpa.com}{ishdeshpa.com} | \href{http://linkedin.com/in/ishdeshpa/}{linkedin.com/in/ishdeshpa/}}
+\end{center}
+
+\vspace{-15pt}
+
+\sectionHeader{Education}       
+\begin{flushleft}
+    \textbf{\large UT Austin} \\
+    \textbf{B.S. in Electrical and Computer Engineering} \hfill \textbf{May 2025} \\
+    \textbf{M.S. in Electrical and Computer Engineering (Spec. Embedded Systems)} \hfill \textbf{May 2026} \\
+    \textit{3.79 Undergraduate GPA} \\
+    \textbf{Relevant Coursework:} Embedded Systems Lab, Compilers, Operating Systems, Digital Logic Design, ML/HW Codesign, Computer Architecture, Algorithms, Data Science Lab, Software Design \& Implementation I/II, RTOS
+\end{flushleft}
+
+\vspace{-5pt}
+
+\sectionHeader{Experience}
+\begin{flushleft}
+    \sectionItem{Tesla}{May 2024 - Aug 2024}{Body Controls Firmware Intern}{Palo Alto, CA}{
+        \begin{itemize}
+            \item Enhanced future firmware reliability by implementing tooling PC-Lint for static code analysis on Renesas microcontroller
+            \item Assessed non-volatile memory usage across all body control modules by introducing CAN logging for EEPROM usage
+            \item Improved vehicle performance by fixing various bugs and implementing features related to sensor calibration and interfacing (mirror heaters, trailer brake sensors, overhead lights, door actuation)     
+        \end{itemize}
+    }
+    
+    \sectionItem{Garmin}{May 2023 - Aug 2023}{Flight Control Systems Firmware Intern}{Olathe, KS}{
+        \begin{itemize}
+            \item Accelerated aircraft control module testing by writing a Python SIL simulation for vertical navigation and altitude tracking
+            \item Optimized flight control module performance by developing HIL unit tests in C within an RTOS environment
+        \end{itemize}
+    }
+
+    \sectionItem{University of Texas at Austin}{Jan 2023 - Present}{Operating Systems TA}{Austin, TX}{
+        \begin{itemize}
+            \item Enhance understanding of OS concepts for 70+ students through effective instruction
+            \item Improve project outcomes by debugging issues in User Programs, Virtual Memory, and Filesystems with PintOS
+        \end{itemize}
+        \role{Embedded Systems Tutor}{}{
+            \begin{itemize}
+                \item Elevated students' understanding of embedded systems by teaching key concepts such as interrupts, DAC/ADC, finite state machines, and serial communication, resulting in improved project performance and comprehension
+            \end{itemize}
+        }
+    }
+
+    \sectionItem{EnergyX}{May 2022 - Aug 2022}{Automation and Controls Intern}{Austin, TX}{
+        \begin{itemize}
+            \item Optimized the lithium extraction process by programming and integrating Programmable Logic Controllers (PLCs) onto a control panel, enhancing operational efficiency
+            \item Increased system reliability by designing, wiring, and rigorously testing a control panel to meet prototype specifications
+        \end{itemize}
+    }
+\end{flushleft}
+
+\vspace{-7.5pt}
+
+\sectionHeader{Activities and Projects}
+\begin{flushleft}
+    \sectionItem{Longhorn Racing Solar Car}{Sept 2021 - Present}{Platform Team Lead}{}{
+        \begin{itemize} 
+            \item Improved robustness of on-vehicle firmware updates by developing a UART/CAN bootloader (custom linker script and flash memory driver)
+            \item Increased remote testing accessibility by designing a 12V/100W power supply PCB featuring USB-C Power Delivery
+        \end{itemize}
+        \role{Controls Team Lead}{}{
+            \begin{itemize}
+	      \item Programmed in an RTOS context for our platform of STM32 microcontrollers (display, motor controller)
+	      \item Managed a team of 12 through a traditional software workflow with Git/GitHub
+            \end{itemize}
+        }
+    }
+    \sectionItem{UT Systems and Machine Learning Research}{Oct 2024 - Present}{Undergraduate Research Assistant}{}{
+        \begin{itemize}
+            \item Researching energy attribution for serverless functions in the cloud
+        \end{itemize}
+    }
+    \sectionItem{UT Embedded Systems Lab Design Competition - 3rd Place}{Apr 2024}{Embedded Software Engineer}{}{
+        \begin{itemize}
+            \item Collaborated with a team of 4 to develop a GameBoy emulator on a TM4C microcontroller
+            \item Designed a circuit board in KiCAD and worked with protocols such as SPI/QSPI and 16-bit parallel
+        \end{itemize}
+    }
+    \sectionItem{UT Real-Time Operating Systems Graduate Project}{Apr 2025}{Embedded Software Engineer}{}{
+        \begin{itemize}    
+            \item Interfaced with a Wifi-Ethernet bridge chip and wrote MAC, IP, UDP, ICMP, ARP, and DHCP drivers from scratch
+	    \item Demonstrated functional ping and netcat implementations on an RTOS
+        \end{itemize}
+    }
+\end{flushleft}
+
+\begin{flushleft}
+    \rule{\textwidth}{1pt}
+    \underline{Skills:} C/C++, KiCAD, Python, Verilog, Vitis HLS, Kernel Development, Application Development for RTOS, Linux, Git, Docker, AWS, Java \\
+    \underline{Interests:} Table Tennis, Music Production, Piano
+\end{flushleft}
+
+\end{document}

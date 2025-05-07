@@ -1,0 +1,59 @@
+#!/bin/bash
+
+# Get the directory where this script is located
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+
+TDAY=$(date +%F)
+CURRENT_TIME=$(date +"%I:%M:%S%p")  # Replacing ":" with "-" for safe filenames
+NEW_POST="$SCRIPT_DIR/$TDAY-$CURRENT_TIME.md"
+
+# Initialize variables
+HEADING=""
+CONTENT=""
+GIT_PUSH=false
+
+# Help text
+usage() {
+  echo "Usage: $0 [-h heading] [-m markdown] [-g]"
+  echo "  -h heading     : Specify post heading (optional)"
+  echo "  -m markdown    : Specify post content (optional)"
+  echo "  -g             : Push to git after generating post (optional)"
+  exit 1
+}
+
+# Parse flags
+while getopts ":h:m:g" opt; do
+  case $opt in
+    h) HEADING="$OPTARG" ;;
+    m) CONTENT="$OPTARG" ;;
+    g) GIT_PUSH=true ;;
+    \?) echo "Invalid option: -$OPTARG" >&2; usage ;;
+    :) echo "Option -$OPTARG requires an argument." >&2; usage ;;
+  esac
+done
+
+# Create post file
+if [ -n "$HEADING" ] || [ -n "$CONTENT" ]; then
+  {
+    if [ -n "$HEADING" ]; then
+      echo "# $HEADING"
+    fi
+    echo
+    if [ -n "$CONTENT" ]; then
+      echo "$CONTENT"
+    fi
+  } > "$NEW_POST"
+else
+  nvim "$NEW_POST"
+fi
+
+# Run post generation
+if [ -e "$NEW_POST" ]; then
+  "$SCRIPT_DIR/ublog-generate.sh"
+
+  if [ "$GIT_PUSH" = true ]; then
+    git -C "$SCRIPT_DIR" add "$TDAY-$CURRENT_TIME.md"
+    git -C "$SCRIPT_DIR" commit -m "Post: $TDAY $CURRENT_TIME"
+    git -C "$SCRIPT_DIR" push
+  fi
+fi

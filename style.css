@@ -1,0 +1,92 @@
+body {
+  font-family: 'Brush Script MT', cursive;
+  background-color: rgb(230, 237, 247);
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+}
+
+.nav li {
+  float: none; /* Remove float */
+}
+
+.nav li a {
+  display: block;
+  padding: 14px 16px;
+}
+
+#title{
+  margin-bottom: 4px
+}
+
+#name{
+  margin-top: 4px
+}
+
+.semester{
+  outline: 2px solid black;
+  margin-top: -2px;
+  margin-bottom: -2px;
+}
+
+.semester-title{
+  margin-top: 4px;
+  margin-bottom: 4px
+}
+
+.class{
+  margin-bottom: 5px
+}
+
+.post h2 {
+  margin-top: 4px;
+}
+
+#feed {
+  display: flex 
+}
+
+#posts {
+  width:80%;
+  flex: 4;
+  margin-right: 10px;
+}
+
+#gh {
+  width: 19%;
+  flex: 1;
+  float:right;
+  outline: 2px solid black;
+}
+
+#about-me {
+  display: flex;
+  align-items: flex-start;
+}
+
+#about-desc {
+  flex: 4;
+  margin-right: 2%;
+}
+
+#profile {
+  flex: 1;
+  max-width: 25%; 
+  margin-left: auto; 
+}
+
+#profile img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
