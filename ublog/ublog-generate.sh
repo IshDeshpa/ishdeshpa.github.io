@@ -20,7 +20,7 @@ for file in $(find "$POSTS_DIR" -maxdepth 1 -name "*.md" | sort); do
         echo "," >> "$OUTPUT_FILE"
     fi
     # Append the file path as a JSON string (relative to POSTS_DIR)
-    rel_path="${file#$SCRIPT_DIR/}"
+    rel_path="${file#$POSTS_DIR/}"
     echo "  \"${rel_path}\"" >> "$OUTPUT_FILE"
 done
 

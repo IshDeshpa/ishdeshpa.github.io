@@ -1,7 +1,9 @@
 #!/bin/bash
 
-POSTS_DIR="blog"
-OUTPUT_FILE="blog-list.json"
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+
+POSTS_DIR="$SCRIPT_DIR"
+OUTPUT_FILE="$SCRIPT_DIR/blog-list.json"
 
 echo "[" > "$OUTPUT_FILE"
 
@@ -15,8 +17,8 @@ for file in $(find "$POSTS_DIR" -maxdepth 1 -name "*.md" | sort); do
       echo "," >> "$OUTPUT_FILE"
     fi
 
-    echo "  \"${file}\"" >> "$OUTPUT_FILE"
-    cp blog-template.html ${file%.md}.html
+    echo "  \"${file#$POSTS_DIR}\"" >> "$OUTPUT_FILE"
+    cp $SCRIPT_DIR/blog-template.html ${file%.md}.html
   fi
 done
 
