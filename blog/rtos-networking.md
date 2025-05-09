@@ -24,13 +24,14 @@ Conversion notes:
 * This document has images: check for >>>>>  gd2md-html alert:  inline image link in generated source and store images to your server. NOTE: Images in exported zip file from Google Docs may not appear in  the same order as they do in your doc. Please check the images!
 
 ----->
-
-# May 07, 2025
+May 07, 2025
 ## Preface:
 
 Maanav and I completed a basic functional wifi stack. Here's the project report if interested.
 
-# [ECE380L: Networking with an RTOS](https://github.com/IshDeshpa/445M_Networking)
+# ECE380L: Networking with an RTOS
+
+## [Repository](https://github.com/IshDeshpa/445M_Networking)
 ## Maanav Koladia & Ishan Deshpande
 ## Spring 2025
 
