@@ -80,7 +80,18 @@ iframe {
 }
 
 #name{
-  margin-top: 4px
+  margin-top: 4px;
+  margin-right: 5px
+}
+
+#links{
+  display: flex;
+}
+
+#links > a{
+  margin-left: 5px;
+  margin-right: 5px;
+  margin-top: 5px;
 }
 
 .semester{
