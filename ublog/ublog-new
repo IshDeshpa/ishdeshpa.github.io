@@ -48,7 +48,7 @@ if [ -n "$HEADING" ] || [ -n "$CONTENT" ]; then
       echo "$CONTENT"
     fi
     if [ -n "$IMAGE" ]; then
-      echo "![image]$(basename $IMAGE)"
+      echo "![image]($(basename $IMAGE))"
     fi
   } > "$NEW_POST"
 else
