@@ -123,6 +123,12 @@ iframe {
   margin-right: 10px;
 }
 
+#posts img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
 #gh {
   width: 19%;
   flex: 1;
