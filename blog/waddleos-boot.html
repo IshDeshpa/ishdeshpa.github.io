@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="../style.css" rel="stylesheet">
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+</head>
+<body> 
+  <div class="header">
+    <div>
+      <h1 id="title" class="hover-effect"><a href="http://www.ishdeshpa.com">ishdeshpa.com</a></h1>
+      <h3 id="name">Ishan Deshpande</h3>
+    </div>
+    <ul class="nav">
+      <li>
+	<a href="#school"><div class="hover-effect">School</div></a>
+      </li>
+      <li>
+	<a href="/resume"><div class="hover-effect">Resume</div></a>
+      </li>
+      <li>
+	<a href="#ublog"><div class="hover-effect">uBlog</div></a>
+      </li>
+      <li>
+	<a href="#blog"><div class="hover-effect">Blog</div></a>
+      </li>
+    </ul>
+  </div>
+  <div id="content">Loading...</div>
+  <script>
+    $(function () {
+      // Get current HTML file name
+      let htmlFile = window.location.pathname.split('/').pop() || 'index.html';
+      let mdFile = htmlFile.replace(/\.html?$/, '.md');
+
+      $.get(mdFile)
+        .done(function (data) {
+          $('#content').html(marked.parse(data));
+        })
+        .fail(function () {
+          $('#content').text('Could not load ' + mdFile);
+        });
+    });
+  </script>
+</body>
+</html>
