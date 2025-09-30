@@ -47,7 +47,7 @@ Using the ATWILC1000 module was a challenge primarily due to our lack of underst
 
 
 
-![alt_text](images/image1.png "image_tooltip")
+![alt_text](image1.png "image_tooltip")
 
 
 **Chip Functionality**
@@ -59,7 +59,7 @@ Using the ATWILC1000 module was a challenge primarily due to our lack of underst
 3. The chip handles the data link and physical layers of the 7-layer OSI model (shown below). Thus, our job will be to implement the network and transport layers. \
 
 
-![alt_text](images/image2.png "image_tooltip")
+![alt_text](image2.png "image_tooltip")
 
 
 **Initialization Ritual**
@@ -74,15 +74,15 @@ The driver divides packets received from the chip into two pools: ethernet and w
 
 The wifi packets allow us to parse general information and execute commands such as “Scan for networks” or “Connect to wifi” so that we can actually command the chip. By reading through the documentation for the WILC, we were able to write basic scanning and connection code.
 
-![alt_text](images/image3.png "image_tooltip")
+![alt_text](image3.png "image_tooltip")
 
-![alt_text](images/image4.png "image_tooltip")
+![alt_text](image4.png "image_tooltip")
 
 
 The ethernet packets, on the other hand, are the raw data sent to/from some access point or other device on the network.
 
 
-![alt_text](images/image5.png "image_tooltip")
+![alt_text](image5.png "image_tooltip")
 
 Our initial idea was to get a proof-of-concept “ping” running between our laptop and the TM4C. Ping will just respond to echo requests coming from another device on the network. In order to implement ping, we needed to implement:
 
@@ -118,7 +118,7 @@ The flow of asynchronous receive is as follows:
 This allows us to keep the ISR short and bounded, and schedule the processing work in the existing priority mechanism of the RTOS. The receive processing is done in a separate thread from the transmit processing; so that one receive can be processed concurrently while generating a transmit packet.
 
 
-![alt_text](images/image6.png "image_tooltip")
+![alt_text](image6.png "image_tooltip")
 
 
 **Simulation with Wireshark**
@@ -138,7 +138,7 @@ This brings us to the most common and frustrating bug in our stack:** endianness
 When sending bytes across the network, there must be a consistent order of bytes agreed upon by all devices on the network. This is typically big-endian order (or network order); where each field larger than a byte needs to have the bytes flipped. 
 
 
-![alt_text](images/image7.png "image_tooltip")
+![alt_text](image7.png "image_tooltip")
 
 
 Most of our issues were endianness issues. We dealt with flipped IP addresses, flipped MAC addresses, and more. Apparently sometimes two different fields are combined into one field that needs to be flipped into little endian order. And all of this is important for calculating the checksum and using the field properly!

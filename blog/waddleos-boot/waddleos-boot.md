@@ -1,4 +1,7 @@
 <!--PUBLISH-->
+
+September 29, 2025 (but a work in progress since early June)
+
 # Waddle OS -- Bootloader Bare Bones
 
 I've finally started my OS-dev project. In the effort of trying to document what I learn, I'm going to try to use this blog more frequently as a means of writing to an audience about the new stuff I learn.
