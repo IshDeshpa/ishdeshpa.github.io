@@ -1,3 +1,4 @@
+<!--11-02-2025-->
 <!--PUBLISH-->
 
 November 2, 2025 (but a work in progress since the last post on September 29, 2025)

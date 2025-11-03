@@ -1,5 +1,7 @@
 [
-  "rtos-networking/"
+  "waddleos-beginnings/"
 ,
   "waddleos-boot/"
+,
+  "rtos-networking/"
 ]
