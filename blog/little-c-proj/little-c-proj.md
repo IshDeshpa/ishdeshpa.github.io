@@ -1,3 +1,6 @@
+<!--01-05-2026-->
+<!--PUBLISH-->
+
 # Little C Project -- Falling Sand
 
 So it turns out I can't work all day and all night on a single project without burning out on it. And yes, I know I said last post that I would get it out by the end of 2025, but that didn't end up happening. Don't worry, I'm still working on memory allocation and hyper-optimizing my bitmap algorithms, but I think I need some instant gratification to provide a break in my routine.
@@ -147,7 +150,7 @@ It will print the line that failed as well as its line number, so I know exactly
 
 After just a little more work choosing a sand color, making it the right size and start in the center-top of the screen, we have a falling sand pixel.
 
-[one falling pixel](one-falling-pixel.mp4)
+![one falling pixel](one-falling-pixel.mp4)
 
 Now, the speed of the sand and the frame rate are tied together, which isn't a great thing. Our exit detection is also tied to the frame rate, meaning if my per-frame delay is set to something like 200ms, I have to wait at most 200ms for my input to take effect. If I make the sand slower, this will increase the input lag.
 
@@ -181,7 +184,7 @@ void update_grain(SDL_FRect *grain){
 
 Now, I just call this method in `update_state` and render in the main loop. I also didn't forget to _seed_ the random number generator with the current time in ns, a semi-random value. Our falling grain now looks like so:
 
-[flaky sand](flaky-sand.mp4)
+<video src="flaky-sand.mp4" controls></video>
 
 Pretty good! All that's left is to separate the grain logic and the render logic into two different threads. 
 
@@ -250,7 +253,7 @@ int main(int argc, char **argv){
 }
 ```
 
-[smooth fall](smooth-fall.mp4)
+<video src="smooth-fall.mp4" controls></video>
 
 ## Multiple Grains
 
@@ -262,7 +265,7 @@ The main screen update thread does the same thing but renders all grains from 0 
 
 Here's the result.
 
-[multiple grains](multiple-grains.mp4)
+<video src="multiple-grains.mp4" controls></video>
 
 Later introduced a per-grain mutex in the grain structure itself, so that the renderer isn't blocked on the state update if it's rendering completely separate grains. You might call this a more "granular" mutex.
 
@@ -331,7 +334,7 @@ void update_grain(grain *grain){
 ```
 And here's the result:
 
-[migrating pixels](migrating-pixels.mp4)
+<video src="migrating-pixels.mp4" controls></video>
 
 sob emoji. 
 
@@ -363,7 +366,7 @@ void update_grain(grain *grain){
 
 And here's it in action:
 
-[molehill](molehill.mp4)
+<video src="molehill.mp4" controls></video>
 
 Two things seem to happen while the simulation runs:
 1. My laptop gets hot.
@@ -386,7 +389,7 @@ To remedy this, a sand grain needs to stop before shifting into a taller column 
   }
 ```
 
-[dune](dune.mp4)
+<video src="dune.mp4" controls></video>
 
 [my dune](https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fi.imgflip.com%2F8wgcy0.gif&f=1&nofb=1&ipt=806b32d7fd4db426bbddb40b6f3699a8186d36e690a216c40e76fde90c6da402)
 ## Performance
@@ -412,7 +415,7 @@ int update_debug(void *data){
 }
 ```
 
-[fps uncapped](fps-uncapped.mp4)
+<video src="fps-uncapped.mp4" controls></video>
 
 That's a pretty high number of FPS. The amount the game updates is completely uncapped right now! This means my process is just eating up CPU, which is probably what's leading to the increased heat.
 
@@ -432,9 +435,16 @@ So again, we measure time A at the beginning of our loop, time B at the end of o
 ```
 And there you have it. Now my computer is perfectly fine and our FPS counter shows 60-ish.
 
-[fps capped](fps-capped.mp4)
+<video src="fps-capped.mp4" controls></video>
 
+A few other little things to fix and then we'll be done. Firstly, instead of using a grain struct with an embedded `SDL_FRect`, I want to use a separate array of `SDL_FRects` so I can use the `FillRects` method to (hopefully in a more optimized manner) render all of the rects without a loop.
 
-### TODO:
-- Use FillRects by separating the rects array out
-- "Chunk" mutexes
+The other thing I've fixed is not using a separate mutex per grain. This was kind of required after the first fix, since I was rendering all grains with one call, but I reversed this decision considering the overhead that a mutex per grain would require. A better approach, if I was still rendering grain-by-grain, would be to "chunk" the mutexes, or make a separate mutex per _n_ grains to limit the amount of overhead required. Choosing this number would probably involve monitoring the amount of memory allocated and changing the number, but I'm not really up for all that.
+
+Here's the final grain video:
+
+<video src="final.mp4" controls></video>
+
+[Here's the repo](https://github.com/IshDeshpa/little-c-projects)
+
+Happy New Year!
