@@ -1,6 +1,8 @@
 <!--01-05-2026-->
 <!--PUBLISH-->
 
+January 05, 2026
+
 # Little C Project -- Falling Sand
 
 So it turns out I can't work all day and all night on a single project without burning out on it. And yes, I know I said last post that I would get it out by the end of 2025, but that didn't end up happening. Don't worry, I'm still working on memory allocation and hyper-optimizing my bitmap algorithms, but I think I need some instant gratification to provide a break in my routine.
