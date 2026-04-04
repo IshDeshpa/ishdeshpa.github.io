@@ -447,6 +447,6 @@ Here's the final grain video:
 
 <video src="final.mp4" controls></video>
 
-[Here's the repo](https://github.com/IshDeshpa/little-c-projects)
+[Here's the repo](https://github.com/IshDeshpa/misc-projects)
 
 Happy New Year!
