@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Orbitron:wght@400&family=VT323&family=Fira+Code&family=IBM+Plex+Mono&family=Courier+Prime&family=Press+Start+2P&family=Inconsolata&family=Space+Mono&family=Pixelify+Sans&family=Patrick+Hand&display=swap" rel="stylesheet">
+    <meta charset="utf-8">
+    <style>
+      body {
+        margin: 0;
+        background: #ffffff;
+        color: #888;
+        font-family: 'Share Tech Mono', monospace;
+        font-size: 12px;
+      }
+
+      #controls {
+        padding: 10px 14px;
+        display: flex;
+        align-items: center;
+        gap: 20px;
+        border-top: 1px solid #1e1e1e;
+      }
+
+      #upload {
+        color: #555;
+        cursor: pointer;
+      }
+
+      #upload::file-selector-button {
+        font-family: 'Share Tech Mono', monospace;
+        font-size: 11px;
+        background: none;
+        border: 1px solid #2a2a2a;
+        color: #666;
+        padding: 3px 10px;
+        cursor: pointer;
+        margin-right: 8px;
+      }
+      #upload::file-selector-button:hover {
+        border-color: #444;
+        color: #999;
+      }
+
+      #fontSize { accent-color: #39ff7e; cursor: pointer; }
+
+      #fontSelect {
+        font-family: 'Share Tech Mono', monospace;
+        font-size: 11px;
+        background: none;
+        border: 1px solid #2a2a2a;
+        color: #666;
+        padding: 3px 8px;
+        cursor: pointer;
+        outline: none;
+      }
+      #fontSelect:hover { border-color: #444; color: #999; }
+      #fontSelect option { background: #0a0a0a; }
+
+      #modeSelect {
+        display: flex;
+        gap: 12px;
+        color: #555;
+      }
+      #modeSelect label {
+        cursor: pointer;
+        letter-spacing: .04em;
+      }
+      #modeSelect input[type="radio"] {
+        accent-color: #39ff7e;
+        cursor: pointer;
+      }
+      #modeSelect label:hover {
+        color: #666;
+      }
+
+      #invertLabel {
+        color: #555;
+        cursor: pointer;
+        letter-spacing: .04em;
+      }
+      #invertLabel:hover { color: #666; }
+      #inverted { accent-color: #39ff7e; cursor: pointer; }
+
+      #keybinds { color: #3a3a3a; letter-spacing: .04em; }
+      #keybinds b { color: #555; }
+
+      #texturecanvas, #charcanvas, #video, #videocanvas { display: none; }
+
+      #usage {
+        padding: 8px 14px;
+        font-size: 11px;
+        color: #666;
+        border-bottom: 1px solid #1e1e1e;
+        letter-spacing: .03em;
+      }
+      #usage b {
+        color: #888;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="usage">
+      <b>Usage</b> —
+      Use the slider to reveal the ASCII rendering. Adjust settings below (font, size, mode, invert).
+      Press <b>1</b>/<b>2</b>/<b>3</b> to switch scenes (geometries, solar system, video).
+      Upload a video with <b>Choose File</b> for video mode. Use <b>+</b>/<b>−</b> or the slider to change font size.
+    </div>
+
+    <canvas id="texturecanvas"></canvas>
+    <canvas id="charcanvas"></canvas>
+    <canvas id="canvaselement" width="1000" height="1000"></canvas>
+    <video id="video" playsinline></video>
+    <canvas id="videocanvas"></canvas>
+
+    <div id="controls">
+      <input type="file" id="upload" accept="video/*">
+      <input type="range" min="1" max="70" value="12" id="fontSize">
+
+      <select id="fontSelect">
+        <option value="monospace">monospace</option>
+        <option value="Share Tech Mono">Share Tech Mono</option>
+        <option value="VT323">VT323</option>
+        <option value="Press Start 2P">Press Start 2P</option>
+        <option value="Pixelify Sans">Pixelify Sans</option>
+        <option value="Orbitron">Orbitron</option>
+        <option value="Fira Code">Fira Code</option>
+        <option value="IBM Plex Mono">IBM Plex Mono</option>
+        <option value="Inconsolata">Inconsolata</option>
+        <option value="Space Mono">Space Mono</option>
+        <option value="Courier Prime">Courier Prime</option>
+        <option value="Patrick Hand">Patrick Hand</option>
+      </select>
+
+      <div id="modeSelect">
+        <label><input type="radio" name="mode" value="1" checked> 1D Luminance </label>
+        <label><input type="radio" name="mode" value="2"> 2D Luminance </label>
+        <label><input type="radio" name="mode" value="3"> 6D Luminance </label>
+      </div>
+
+      <label id="invertLabel"><input type="checkbox" id="inverted"></input> invert </label>
+
+      <span id="keybinds">
+        <b>+</b> / <b>−</b> font size &nbsp;·&nbsp;
+        <b>1</b> geometries &nbsp;·&nbsp;
+        <b>2</b> solar system &nbsp;·&nbsp;
+        <b>3</b> video
+      </span>
+
+    </div>
+
+    <script type="module" src="./index.js"></script>
+  </body>
+</html>
